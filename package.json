@@ -1,9 +1,9 @@
 {
-    "name": "pinf-it-codewrap",
+    "name": "pinf-it-codeinsight",
     "version": "0.1.1",
     "pm": "npm",
     "publish": true,
-    "main": "./lib/packagewrap.js",
+    "main": "./lib/codeinsight.js",
     "dependencies": {
         "jslint": "~0.1.9",
         "esprima": "~1.0.2",

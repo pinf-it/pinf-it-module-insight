@@ -4,16 +4,16 @@ const ASSERT = require("assert");
 const WAITFOR = require("waitfor");
 const GLOB = require("glob");
 const FS = require("fs-extra");
-const CODEWRAP = require("../lib/codewrap");
+const CODEINSIGHT = require("../lib/codeinsight");
 
 const MODE = "test";
 //const MODE = "write";
 
 
-describe('codewrap', function() {
+describe('codeinsight', function() {
 
 	it('should export `parseFile()`', function() {
-		ASSERT(typeof CODEWRAP.parseFile === "function");
+		ASSERT(typeof CODEINSIGHT.parseFile === "function");
 	});
 
 	describe('`parseFile()`', function() {
@@ -50,7 +50,7 @@ describe('codewrap', function() {
 						var options = {
 							//debug: true
 						};
-						return CODEWRAP.parseFile(PATH.join(__dirname, "assets", file), options, function(err, descriptor) {
+						return CODEINSIGHT.parseFile(PATH.join(__dirname, "assets", file), options, function(err, descriptor) {
 
 							ASSERT.equal(typeof err, "object");
 							ASSERT.equal(err.message, "Parsing of PHP files is planned but not yet implemented");
@@ -78,7 +78,7 @@ describe('codewrap', function() {
 						var options = {
 							//debug: true
 						};
-						return CODEWRAP.parseFile(PATH.join(__dirname, "assets", file), options, function(err, descriptor) {
+						return CODEINSIGHT.parseFile(PATH.join(__dirname, "assets", file), options, function(err, descriptor) {
 							if (err) return done(err);
 
 							try {

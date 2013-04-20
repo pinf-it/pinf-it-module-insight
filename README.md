@@ -1,11 +1,11 @@
 *STATUS: DEV*
 
-Code Module Wrapper
-===================
+Code Insight
+============
 
 Code module standards are evolving but there are various differences across communities.
 
-This library attempts to wrap code modules to a common format for
+This library attempts to generate a normalized module descriptor for
 any code that adheres to the following conventions:
 
   * [CommonJS](http://wiki.commonjs.org/wiki/Modules/1.1)
@@ -18,15 +18,15 @@ any code that adheres to the following conventions:
 Install
 -------
 
-    npm install pinf-it-codewrap
+    npm install pinf-it-codeinsight
 
 
 Usage
 -----
 
-    const CODEWRAP = require("codewrap");
+    const CODEINSIGHT = require("codeinsight");
   
-    CODEWRAP.parseFile("<path>", {}, function(err, descriptor) {
+    CODEINSIGHT.parseFile("<path>", {}, function(err, descriptor) {
       // `descriptor.globals`
       // `globals`
       // `format`
