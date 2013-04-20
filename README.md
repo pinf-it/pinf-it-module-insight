@@ -28,11 +28,10 @@ Usage
   
     CODEINSIGHT.parseFile("<path>", {}, function(err, descriptor) {
       // `descriptor.globals`
-      // `globals`
-      // `format`
-      // `undefine`
-      // `warnings`
-      // `errors`
+      // `descriptor.format`
+      // `descriptor.undefine`
+      // `descriptor.warnings`
+      // `descriptor.errors`
     });
 
 
