@@ -1,0 +1,14 @@
+{
+    "globals": {
+        "window": {
+            "type": "variable"
+        },
+        "define": {
+            "type": "variable"
+        }
+    },
+    "format": "amd",
+    "undefine": [],
+    "warnings": [],
+    "errors": []
+}

@@ -1,0 +1,11 @@
+{
+    "globals": {
+        "exports": {
+            "type": "variable"
+        }
+    },
+    "format": "commonjs",
+    "undefine": [],
+    "warnings": [],
+    "errors": []
+}

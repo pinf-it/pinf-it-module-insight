@@ -1,0 +1,14 @@
+{
+    "globals": {
+        "define": {
+            "type": "variable"
+        },
+        "jQuery": {
+            "type": "variable"
+        }
+    },
+    "format": "amd",
+    "undefine": [],
+    "warnings": [],
+    "errors": []
+}

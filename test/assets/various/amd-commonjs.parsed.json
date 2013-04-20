@@ -1,0 +1,23 @@
+{
+    "globals": {
+        "define": {
+            "type": "variable"
+        },
+        "exports": {
+            "type": "variable"
+        },
+        "require": {
+            "type": "variable"
+        },
+        "window": {
+            "type": "variable"
+        }
+    },
+    "format": "amd",
+    "undefine": [
+        "require",
+        "exports"
+    ],
+    "warnings": [],
+    "errors": []
+}

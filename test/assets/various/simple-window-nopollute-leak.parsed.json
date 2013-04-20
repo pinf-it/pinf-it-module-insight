@@ -1,0 +1,16 @@
+{
+    "globals": {
+        "window": {
+            "type": "variable"
+        }
+    },
+    "format": null,
+    "undefine": [],
+    "warnings": [
+        [
+            "parse",
+            "Could not detect module format."
+        ]
+    ],
+    "errors": []
+}

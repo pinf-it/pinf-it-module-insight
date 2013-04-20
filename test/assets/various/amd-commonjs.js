@@ -9,10 +9,10 @@
     //to make an anonymous module, remove the 'id'
     //below, and remove the id use in the define shim.
     define('id', function (require, exports) {
-        exports.STRING: "string-value",
-        exports.OBJECT: {
+        exports.STRING = "string-value";
+        exports.OBJECT = {
             id: "object-value"
-        }
+        };
     });
 }(typeof define === 'function' && define.amd ? define : function (id, factory) {
     if (typeof exports !== 'undefined') {

@@ -1,0 +1,22 @@
+{
+    "globals": {
+        "exports": {
+            "type": "typeof"
+        },
+        "require": {
+            "type": "variable"
+        },
+        "define": {
+            "type": "variable"
+        },
+        "jQuery": {
+            "type": "variable"
+        }
+    },
+    "format": "commonjs",
+    "undefine": [
+        "define"
+    ],
+    "warnings": [],
+    "errors": []
+}

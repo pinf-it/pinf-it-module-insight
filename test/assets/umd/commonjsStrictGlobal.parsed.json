@@ -1,0 +1,19 @@
+{
+    "globals": {
+        "exports": {
+            "type": "variable"
+        },
+        "require": {
+            "type": "variable"
+        },
+        "define": {
+            "type": "variable"
+        }
+    },
+    "format": "commonjs",
+    "undefine": [
+        "define"
+    ],
+    "warnings": [],
+    "errors": []
+}

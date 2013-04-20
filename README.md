@@ -41,6 +41,7 @@ Links
 =====
 
   * http://addyosmani.com/writing-modular-js/
+  * https://developer.mozilla.org/en-US/docs/SpiderMonkey/Parser_API
 
 
 License

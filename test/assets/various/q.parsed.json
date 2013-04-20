@@ -1,0 +1,45 @@
+{
+    "globals": {
+        "setImmediate": {
+            "type": "variable"
+        },
+        "window": {
+            "type": "variable"
+        },
+        "process": {
+            "type": "variable"
+        },
+        "MessageChannel": {
+            "type": "typeof"
+        },
+        "setTimeout": {
+            "type": "variable"
+        },
+        "bootstrap": {
+            "type": "variable"
+        },
+        "exports": {
+            "type": "typeof"
+        },
+        "module": {
+            "type": "variable"
+        },
+        "define": {
+            "type": "variable"
+        },
+        "ses": {
+            "type": "variable"
+        },
+        "Q": {
+            "type": "variable"
+        }
+    },
+    "format": "commonjs",
+    "undefine": [
+        "define",
+        "bootstrap",
+        "ses"
+    ],
+    "warnings": [],
+    "errors": []
+}

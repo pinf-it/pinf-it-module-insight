@@ -1,0 +1,16 @@
+{
+    "globals": {
+        "module": {
+            "type": "typeof"
+        },
+        "define": {
+            "type": "typeof"
+        }
+    },
+    "format": "amd",
+    "undefine": [
+        "module"
+    ],
+    "warnings": [],
+    "errors": []
+}

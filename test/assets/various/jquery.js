@@ -19,8 +19,6 @@ var
 
 	// Define a local copy of jQuery
 	jQuery = function( selector, context ) {
-		// The jQuery object is actually just the init constructor 'enhanced'
-		return new jQuery.fn.init( selector, context, rootjQuery );
 	};
 
 // Limit scope pollution from any deprecated API
@@ -29,6 +27,11 @@ var
 // })();
 // Expose jQuery to the global object
 window.jQuery = window.$ = jQuery;
+
+jQuery.STRING = "string-value";
+jQuery.OBJECT = {
+    id: "object-value"
+};
 
 // Expose jQuery as an AMD module, but only for AMD loaders that
 // understand the issues with loading multiple versions of jQuery

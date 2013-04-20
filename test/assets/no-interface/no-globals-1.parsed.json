@@ -1,0 +1,16 @@
+{
+    "globals": {},
+    "format": null,
+    "undefine": [],
+    "warnings": [
+        [
+            "parse",
+            "No global variables found. Thus cannot interface with code."
+        ],
+        [
+            "parse",
+            "Could not detect module format."
+        ]
+    ],
+    "errors": []
+}

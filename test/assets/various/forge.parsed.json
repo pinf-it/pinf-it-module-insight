@@ -1,0 +1,20 @@
+{
+    "globals": {
+        "define": {
+            "type": "variable"
+        },
+        "exports": {
+            "type": "typeof"
+        },
+        "module": {
+            "type": "variable"
+        }
+    },
+    "format": "amd",
+    "undefine": [
+        "module",
+        "exports"
+    ],
+    "warnings": [],
+    "errors": []
+}

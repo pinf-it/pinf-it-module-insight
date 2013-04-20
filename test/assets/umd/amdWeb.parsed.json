@@ -1,0 +1,11 @@
+{
+    "globals": {
+        "define": {
+            "type": "variable"
+        }
+    },
+    "format": "amd",
+    "undefine": [],
+    "warnings": [],
+    "errors": []
+}
