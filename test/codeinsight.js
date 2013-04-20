@@ -96,11 +96,11 @@ describe('codeinsight', function() {
 								if (MODE === "test") {
 									ASSERT.deepEqual(
 										descriptor,
-										JSON.parse(FS.readFileSync(PATH.join(__dirname, "assets", file.replace(/\.js$/, ".parsed.json"))))
+										JSON.parse(FS.readFileSync(PATH.join(__dirname, "assets", file.replace(/\.js$/, ".insight.json"))))
 									);
 								} else
 								if (MODE === "write") {
-									FS.writeFileSync(PATH.join(__dirname, "assets", file.replace(/\.js$/, ".parsed.json")), JSON.stringify(descriptor, null, 4));
+									FS.writeFileSync(PATH.join(__dirname, "assets", file.replace(/\.js$/, ".insight.json")), JSON.stringify(descriptor, null, 4));
 								} else {
 									throw new Error("Unknown `MODE`");
 								}
