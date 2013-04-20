@@ -24,11 +24,16 @@ Install
 Usage
 -----
 
-	const CODEWRAP = require("codewrap");
-
-	CODEWRAP.parseFile("<path>", {}, function(err, descriptor) {
-		// `descriptor.globals`
-	});
+    const CODEWRAP = require("codewrap");
+  
+    CODEWRAP.parseFile("<path>", {}, function(err, descriptor) {
+      // `descriptor.globals`
+      // `globals`
+      // `format`
+      // `undefine`
+      // `warnings`
+      // `errors`
+    });
 
 
 Development
