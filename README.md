@@ -1,12 +1,12 @@
 *STATUS: DEV*
 
-Code Insight
-============
+Module Insight
+==============
 
-Code module standards are evolving but there are various differences across communities.
+Module standards are evolving but there are various differences across communities.
 
 This library attempts to generate a normalized module descriptor for
-any code that adheres to the following conventions:
+any module that adheres to any the following conventions:
 
   * [CommonJS](http://wiki.commonjs.org/wiki/Modules/1.1)
   * [nodejs](http://nodejs.org/api/modules.html)
@@ -18,20 +18,20 @@ any code that adheres to the following conventions:
 Install
 -------
 
-    npm install pinf-it-codeinsight
+    npm install pinf-it-module-insight
 
 
 Usage
 -----
 
-    const CODEINSIGHT = require("codeinsight");
-  
-    CODEINSIGHT.parseFile("<path>", {}, function(err, descriptor) {
-      // `descriptor.globals`
-      // `descriptor.format`
-      // `descriptor.undefine`
-      // `descriptor.warnings`
-      // `descriptor.errors`
+    const MODULE_INSIGHT = require("pinf-it-module-insight");
+    
+    MODULE_INSIGHT.parseFile("<path>", {}, function(err, descriptor) {
+        // `descriptor.globals`
+        // `descriptor.format`
+        // `descriptor.undefine`
+        // `descriptor.warnings`
+        // `descriptor.errors`
     });
 
 

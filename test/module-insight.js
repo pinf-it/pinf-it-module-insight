@@ -4,7 +4,7 @@ const ASSERT = require("assert");
 const WAITFOR = require("waitfor");
 const GLOB = require("glob");
 const FS = require("fs-extra");
-const CODEINSIGHT = require("../lib/codeinsight");
+const MODULE_INSIGHT = require("../lib/module-insight");
 
 const MODE = "test";
 //const MODE = "write";
@@ -13,7 +13,7 @@ const MODE = "test";
 describe('codeinsight', function() {
 
 	it('should export `parseFile()`', function() {
-		ASSERT(typeof CODEINSIGHT.parseFile === "function");
+		ASSERT(typeof MODULE_INSIGHT.parseFile === "function");
 	});
 
 	describe('`parseFile()`', function() {
@@ -50,7 +50,7 @@ describe('codeinsight', function() {
 						var options = {
 							//debug: true
 						};
-						return CODEINSIGHT.parseFile(PATH.join(__dirname, "assets", file), options, function(err, descriptor) {
+						return MODULE_INSIGHT.parseFile(PATH.join(__dirname, "assets", file), options, function(err, descriptor) {
 
 							ASSERT.equal(typeof err, "object");
 							ASSERT.equal(err.message, "Parsing of PHP files is planned but not yet implemented");
@@ -78,7 +78,7 @@ describe('codeinsight', function() {
 						var options = {
 							//debug: true
 						};
-						return CODEINSIGHT.parseFile(PATH.join(__dirname, "assets", file), options, function(err, descriptor) {
+						return MODULE_INSIGHT.parseFile(PATH.join(__dirname, "assets", file), options, function(err, descriptor) {
 							if (err) return done(err);
 
 							try {
