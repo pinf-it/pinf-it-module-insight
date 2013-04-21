@@ -1,4 +1,7 @@
 {
+    "filename": "jqueryPluginCommonjs.js",
+    "mtime": 1366479052,
+    "code": "// @see https://github.com/umdjs/umd/blob/master/jqueryPluginCommonjs.js\n// Uses CommonJS, AMD or browser globals to create a jQuery plugin.\n\n// Similar to jqueryPlugin.js but also tries to\n// work in a CommonJS environment.\n// It is unlikely jQuery will run in a CommonJS\n// environment. See jqueryPlugin.js if you do\n// not want to add the extra CommonJS detection.\n\n(function (factory) {\n    if (typeof exports === 'object') {\n        // Node/CommonJS\n        factory(require('jquery'));\n    } else if (typeof define === 'function' && define.amd) {\n        // AMD. Register as an anonymous module.\n        define(['jquery'], factory);\n    } else {\n        // Browser globals\n        factory(jQuery);\n    }\n}(function ($) {\n    $.fn.jqueryPluginCommonJs = function () {};\n}));",
     "globals": {
         "exports": {
             "type": "typeof"

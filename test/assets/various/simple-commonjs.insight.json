@@ -1,4 +1,7 @@
 {
+    "filename": "simple-commonjs.js",
+    "mtime": 1366479052,
+    "code": "\nexports.STRING = \"string-value\";\n\nexports.OBJECT = {\n\tid: \"object-value\"\n};\n",
     "globals": {
         "exports": {
             "type": "variable"

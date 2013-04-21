@@ -1,4 +1,7 @@
 {
+    "filename": "simple-global.js",
+    "mtime": 1366479052,
+    "code": "\nGLOBAL_STRING = \"global-string-value\";\n\nGLOBAL_OBJECT = {\n\tid: \"global-object-value\"\n};\n",
     "globals": {
         "GLOBAL_STRING": {
             "type": "variable"

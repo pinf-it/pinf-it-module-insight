@@ -1,4 +1,7 @@
 {
+    "filename": "forge.js",
+    "mtime": 1366479052,
+    "code": "// @see https://github.com/digitalbazaar/forge/blob/master/js/forge.js\n(function() {\nvar deps = {};\nvar name = 'util';\nfunction initModule(forge) {\n/* ########## Begin module implementation ########## */\n\n\nforge.STRING = \"string-value\";\n\nforge.OBJECT = {\n\tid: \"object-value\"\n};\n\n\n/* ########## Begin module wrapper ########## */\n}\nvar cjsDefine = null;\nif (typeof define !== 'function') {\n  // CommonJS -> AMD\n  if (typeof exports === 'object') {\n    cjsDefine = function(ids, factory) {\n      module.exports = factory.apply(null, ids.map(function(id) {\n        return require(id);\n      }));\n    }\n  } else\n  // <script>\n  {\n    var forge = window.forge = window.forge || {};\n    forge[name] = forge[name] || {};\n    initModule(forge);\n  }\n}\n// AMD\nif (cjsDefine || typeof define === 'function') {\n  var ids = [];\n  var assigns = [];\n  // Convert `deps` dependency declaration tree into AMD dependency list.\n  function forEachDep(path, deps) {\n    function assign(path) {\n      var index = ids.length;\n      ids.push(deps[path[path.length-1]]);\n      // Create helper function used after import below.\n      assigns.push(function(forge, args) {\n        var id;\n        while(path.length > 1) {\n          id = path.shift();\n          forge = forge[id] = forge[id] || {};\n        }\n        forge[path[0]] = args[index];\n      });\n    }\n    for (var alias in deps) {\n      if (typeof deps[alias] === 'string') {\n        assign(path.concat(alias));\n      } else {\n        forEachDep(path.concat(alias), deps[alias]);\n      }\n    }\n    return forge;\n  }\n  forEachDep([], deps);\n  // Declare module AMD style.\n  (cjsDefine || define)(ids, function() {\n    var args = arguments;\n    var forge = {};\n    // Assemble AMD imported modules into `forge` dependency tree.\n    assigns.forEach(function(assign) {\n      assign(forge, args);\n    });\n    forge[name] = forge[name] || {};\n    initModule(forge);\n    return forge[name];\n  });\n}\n})();\n",
     "globals": {
         "define": {
             "type": "variable"
@@ -10,7 +13,7 @@
             "type": "variable"
         }
     },
-    "format": "amd",
+    "format": "amd-ish",
     "undefine": [
         "module",
         "exports"
