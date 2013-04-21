@@ -48,7 +48,8 @@ describe('codeinsight', function() {
 				files.forEach(function(file) {
 					waitfor(function(done) {
 						var options = {
-							//debug: true
+							//debug: true,
+							test: true
 						};
 						return MODULE_INSIGHT.parseFile(PATH.join(__dirname, "assets", file), options, function(err, descriptor) {
 
@@ -66,9 +67,10 @@ describe('codeinsight', function() {
 		it('should wrap various JavaScript files', function(done) {
 
 			return getFiles([
+				"no-interface/*.js",
+				"requirejs/*.js",
 				"umd/*.js",
 				"various/*.js",
-				"no-interface/*.js"
 			], function(err, files) {
 				if (err) return done(err);
 
@@ -76,7 +78,8 @@ describe('codeinsight', function() {
 				files.forEach(function(file) {
 					waitfor(function(done) {
 						var options = {
-							//debug: true
+							//debug: true,
+							test: true
 						};
 						return MODULE_INSIGHT.parseFile(PATH.join(__dirname, "assets", file), options, function(err, descriptor) {
 							if (err) return done(err);

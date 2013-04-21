@@ -1,8 +1,8 @@
 {
-    "filename": "simple-amd.js",
-    "filepath": "test:///simple-amd.js",
-    "mtime": 1366479052,
-    "code": "\ndefine(function() {\n\treturn {\n\t\tSTRING: \"string-value\",\n\t\tOBJECT: {\n\t\t\tid: \"object-value\"\n\t\t}\n\t};\n});\n",
+    "filename": "anon-blue.js",
+    "filepath": "test:///anon-blue.js",
+    "mtime": 1366559228,
+    "code": "// @see https://github.com/jrburke/requirejs/blob/master/tests/anon/blue.js\ndefine(function () {\n    return {\n        name: \"blue\"\n    };\n});",
     "globals": {
         "define": {
             "type": "variable"

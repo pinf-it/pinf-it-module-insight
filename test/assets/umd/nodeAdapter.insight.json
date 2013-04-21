@@ -1,5 +1,6 @@
 {
     "filename": "nodeAdapter.js",
+    "filepath": "test:///nodeAdapter.js",
     "mtime": 1366479052,
     "code": "// @see https://github.com/umdjs/umd/blob/master/nodeAdapter.js\n// Defines a module that works in Node and AMD.\n\n// This version can be used as common boilerplate for a library module\n// that you only want to expose to Node and AMD loaders. It will not work\n// well for defining browser globals.\n\n// If you need a version of this file that works CommonJS-like environments\n// that do not support module.exports or if you want to define a module\n// with a circular dependency, see commonjsAdapter.js\n\n// Help Node out by setting up define.\nif (typeof module === 'object' && typeof define !== 'function') {\n    var define = function (factory) {\n        module.exports = factory(require, exports, module);\n    };\n}\n\ndefine(function (require, exports, module) {\n    var b = require('b');\n\n    return function () {};\n});\n",
     "globals": {
@@ -8,12 +9,28 @@
         },
         "define": {
             "type": "typeof"
+        },
+        "require": {
+            "type": "variable"
+        },
+        "exports": {
+            "type": "variable"
         }
     },
     "format": "amd-ish",
     "undefine": [
-        "module"
+        "module",
+        "exports"
     ],
+    "dependencies": {
+        "static": {
+            "b": {
+                "where": "inline"
+            }
+        },
+        "dynamic": {},
+        "computed": false
+    },
     "warnings": [],
     "errors": []
 }

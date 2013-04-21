@@ -1,0 +1,25 @@
+{
+    "filename": "text-local.js",
+    "filepath": "test:///text-local.js",
+    "mtime": 1366559777,
+    "code": "// @see https://github.com/jrburke/requirejs/blob/master/tests/text/local.js\ndefine(['text!./resources/local.html'], function (localHtml) {\n    return {\n        localHtml: localHtml\n    }\n});",
+    "globals": {
+        "define": {
+            "type": "variable"
+        }
+    },
+    "format": "amd",
+    "undefine": [],
+    "dependencies": {
+        "static": {
+            "text!./resources/local.html": {
+                "where": "declared",
+                "varname": "localHtml"
+            }
+        },
+        "dynamic": {},
+        "computed": false
+    },
+    "warnings": [],
+    "errors": []
+}

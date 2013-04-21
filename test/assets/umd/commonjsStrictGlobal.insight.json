@@ -1,22 +1,32 @@
 {
     "filename": "commonjsStrictGlobal.js",
+    "filepath": "test:///commonjsStrictGlobal.js",
     "mtime": 1366479052,
     "code": "// @see https://github.com/umdjs/umd/blob/master/commonjsStrictGlobal.js\n// Uses CommonJS, AMD or browser globals to create a module. This example\n// creates a global even when AMD is used. This is useful if you have some\n// scripts that are loaded by an AMD loader, but they still want access to\n// globals. If you do not need to export a global for the AMD case, see\n// commonjsStrict.js.\n\n// If you just want to support Node, or other CommonJS-like environments that\n// support module.exports, and you are not creating a module that has a\n// circular dependency, then see returnExportsGlobal.js instead. It will allow\n// you to export a function as the module value.\n\n// Defines a module \"commonJsStrictGlobal\" that depends another module called\n// \"b\". Note that the name of the module is implied by the file name. It is\n// best if the file name and the exported global have matching names.\n\n// If the 'b' module also uses this type of boilerplate, then\n// in the browser, it will create a global .b that is used below.\n\n(function (root, factory) {\n    if (typeof exports === 'object') {\n        // CommonJS\n        factory(exports, require('b'));\n    } else if (typeof define === 'function' && define.amd) {\n        // AMD. Register as an anonymous module.\n        define(['exports', 'b'], function (exports, b) {\n            factory((root.commonJsStrictGlobal = exports), b);\n        });\n    } else {\n        // Browser globals\n        factory((root.commonJsStrictGlobal = {}), root.b);\n    }\n}(this, function (exports, b) {\n    //use b in some fashion.\n\n    // attach properties to the exports object to define\n    // the exported module properties.\n    exports.action = function () {};\n}));\n",
     "globals": {
         "exports": {
-            "type": "variable"
+            "type": "typeof"
         },
         "require": {
             "type": "variable"
         },
         "define": {
-            "type": "variable"
+            "type": "typeof"
         }
     },
     "format": "commonjs",
     "undefine": [
         "define"
     ],
+    "dependencies": {
+        "static": {
+            "b": {
+                "where": "inline"
+            }
+        },
+        "dynamic": {},
+        "computed": false
+    },
     "warnings": [],
     "errors": []
 }

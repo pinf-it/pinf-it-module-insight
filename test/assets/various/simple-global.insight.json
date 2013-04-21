@@ -1,5 +1,6 @@
 {
     "filename": "simple-global.js",
+    "filepath": "test:///simple-global.js",
     "mtime": 1366479052,
     "code": "\nGLOBAL_STRING = \"global-string-value\";\n\nGLOBAL_OBJECT = {\n\tid: \"global-object-value\"\n};\n",
     "globals": {
@@ -12,6 +13,11 @@
     },
     "format": null,
     "undefine": [],
+    "dependencies": {
+        "static": {},
+        "dynamic": {},
+        "computed": false
+    },
     "warnings": [
         [
             "parse",

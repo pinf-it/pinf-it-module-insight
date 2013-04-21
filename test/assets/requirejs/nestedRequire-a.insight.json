@@ -1,0 +1,28 @@
+{
+    "filename": "nestedRequire-a.js",
+    "filepath": "test:///nestedRequire-a.js",
+    "mtime": 1366562994,
+    "code": "// @see https://github.com/jrburke/requirejs/blob/master/tests/nestedRequire/a.js\ndefine(['base'], function (base) {\n    return {\n        name: 'a',\n        counter: 0,\n        doSomething: function () {\n            this.counter += 1;\n            this.base = base;\n            //This should not cause double notifications.\n            require(['base'], function () {\n            });\n        }\n    };\n});",
+    "globals": {
+        "define": {
+            "type": "variable"
+        },
+        "require": {
+            "type": "variable"
+        }
+    },
+    "format": "amd",
+    "undefine": [],
+    "dependencies": {
+        "static": {
+            "base": {
+                "where": "declared",
+                "varname": "base"
+            }
+        },
+        "dynamic": {},
+        "computed": false
+    },
+    "warnings": [],
+    "errors": []
+}

@@ -1,13 +1,19 @@
 {
     "filename": "no-globals-2.js",
+    "filepath": "test:///no-globals-2.js",
     "mtime": 1366479052,
     "code": "\n(function() {\n\n\tvar exports = {};\n\n\t(function() {\n\n\t\texports.STRING = \"string-value\";\n\n\t\texports.OBJECT = {\n\t\t\tid: \"object-value\"\n\t\t};\n\n\t})();\n\n})();\n",
     "globals": {},
     "format": null,
     "undefine": [],
+    "dependencies": {
+        "static": {},
+        "dynamic": {},
+        "computed": false
+    },
     "warnings": [
         [
-            "parse",
+            "parse-generic",
             "No global variables found. Thus cannot interface with code."
         ],
         [

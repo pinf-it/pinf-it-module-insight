@@ -1,0 +1,29 @@
+{
+    "filename": "circular-a.js",
+    "filepath": "test:///circular-a.js",
+    "mtime": 1366559449,
+    "code": "// @see https://github.com/jrburke/requirejs/blob/master/tests/circular/a.js\ndefine(['b', 'exports'], function (b, exports) {\n    exports.name = 'a';\n    exports.b = b;\n});",
+    "globals": {
+        "define": {
+            "type": "variable"
+        }
+    },
+    "format": "amd",
+    "undefine": [],
+    "dependencies": {
+        "static": {
+            "b": {
+                "where": "declared",
+                "varname": "b"
+            },
+            "exports": {
+                "where": "declared",
+                "varname": "exports"
+            }
+        },
+        "dynamic": {},
+        "computed": false
+    },
+    "warnings": [],
+    "errors": []
+}

@@ -1,0 +1,29 @@
+{
+    "filename": "nestedRelativeRequire-sub-a.js",
+    "filepath": "test:///nestedRelativeRequire-sub-a.js",
+    "mtime": 1366563057,
+    "code": "// @see https://github.com/jrburke/requirejs/blob/master/tests/nestedRelativeRequire/sub/a.js\ndefine(function(require) {\n    require(['./b']);\n});",
+    "globals": {
+        "define": {
+            "type": "variable"
+        }
+    },
+    "format": "amd",
+    "undefine": [],
+    "dependencies": {
+        "static": {
+            "require": {
+                "varname": "require",
+                "where": "declared"
+            }
+        },
+        "dynamic": {
+            "./b": {
+                "where": "inline"
+            }
+        },
+        "computed": false
+    },
+    "warnings": [],
+    "errors": []
+}

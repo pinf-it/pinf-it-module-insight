@@ -1,5 +1,6 @@
 {
     "filename": "simple-commonjs.js",
+    "filepath": "test:///simple-commonjs.js",
     "mtime": 1366479052,
     "code": "\nexports.STRING = \"string-value\";\n\nexports.OBJECT = {\n\tid: \"object-value\"\n};\n",
     "globals": {
@@ -9,6 +10,11 @@
     },
     "format": "commonjs",
     "undefine": [],
+    "dependencies": {
+        "static": {},
+        "dynamic": {},
+        "computed": false
+    },
     "warnings": [],
     "errors": []
 }

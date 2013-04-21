@@ -1,5 +1,6 @@
 {
     "filename": "simple-window-nopollute-proper.js",
+    "filepath": "test:///simple-window-nopollute-proper.js",
     "mtime": 1366479052,
     "code": "((function (window) {\n\n\twindow.GLOBAL_STRING = \"global-string-value\";\n\n\twindow.GLOBAL_OBJECT = {\n\t\tid: \"global-object-value\"\n\t};\n\n})(window));",
     "globals": {
@@ -9,6 +10,11 @@
     },
     "format": null,
     "undefine": [],
+    "dependencies": {
+        "static": {},
+        "dynamic": {},
+        "computed": false
+    },
     "warnings": [
         [
             "parse",
