@@ -10,7 +10,7 @@ const MODE = "test";
 //const MODE = "write";
 
 
-describe('codeinsight', function() {
+describe('module-insight', function() {
 
 	it('should export `parseFile()`', function() {
 		ASSERT(typeof MODULE_INSIGHT.parseFile === "function");
