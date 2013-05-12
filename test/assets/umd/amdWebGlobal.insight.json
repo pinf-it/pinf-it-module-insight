@@ -11,7 +11,11 @@
     "format": "amd-ish",
     "undefine": [],
     "dependencies": {
-        "static": {},
+        "static": {
+            "b": {
+                "where": "declared"
+            }
+        },
         "dynamic": {},
         "computed": false
     },

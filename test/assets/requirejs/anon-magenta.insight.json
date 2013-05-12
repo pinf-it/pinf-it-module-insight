@@ -30,8 +30,9 @@
             "./blue": {
                 "where": "inline"
             },
-            "text!./message.txt": {
-                "where": "inline"
+            "./message.txt": {
+                "where": "inline",
+                "plugin": "text"
             }
         },
         "dynamic": {},

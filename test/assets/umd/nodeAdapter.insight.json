@@ -19,8 +19,8 @@
     },
     "format": "amd-ish",
     "undefine": [
-        "module",
-        "exports"
+        "exports",
+        "module"
     ],
     "dependencies": {
         "static": {

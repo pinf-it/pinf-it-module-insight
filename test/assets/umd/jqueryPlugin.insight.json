@@ -14,7 +14,11 @@
     "format": "amd-ish",
     "undefine": [],
     "dependencies": {
-        "static": {},
+        "static": {
+            "jquery": {
+                "where": "declared"
+            }
+        },
         "dynamic": {},
         "computed": false
     },

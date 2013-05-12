@@ -1,16 +1,14 @@
 // @see https://github.com/digitalbazaar/forge/blob/master/js/forge.js
 (function() {
-var deps = {};
-var name = 'util';
+var deps = {
+  util: './util'
+};
+var name = 'task';
 function initModule(forge) {
 /* ########## Begin module implementation ########## */
 
 
-forge.STRING = "string-value";
-
-forge.OBJECT = {
-	id: "object-value"
-};
+forge.task = forge.util;
 
 
 /* ########## Begin module wrapper ########## */

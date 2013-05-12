@@ -4,12 +4,7 @@
 function initModule(forge) {
 
 
-forge.task = {
-  STRING: "string-value",
-  OBJECT: {
-    id: "object-value"
-  }
-};
+forge.task = forge.util;
 
 
 } // end module implementation

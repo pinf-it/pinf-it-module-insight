@@ -12,9 +12,10 @@
     "undefine": [],
     "dependencies": {
         "static": {
-            "text!./resources/local.html": {
+            "./resources/local.html": {
                 "where": "declared",
-                "varname": "localHtml"
+                "varname": "localHtml",
+                "plugin": "text"
             }
         },
         "dynamic": {},
