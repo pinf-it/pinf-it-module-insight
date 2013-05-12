@@ -6,8 +6,8 @@ const GLOB = require("glob");
 const FS = require("fs-extra");
 const MODULE_INSIGHT = require("../lib/module-insight");
 
-//const MODE = "test";
-const MODE = "write";
+const MODE = "test";
+//const MODE = "write";
 
 
 describe('module-insight', function() {
@@ -69,8 +69,9 @@ describe('module-insight', function() {
 			return getFiles([
 				"no-interface/*.js",
 				"requirejs/*.js",
+				"resources/*",
 				"umd/*.js",
-				"various/*.js",
+				"various/*.js"
 			], function(err, files) {
 				if (err) return done(err);
 
