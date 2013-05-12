@@ -1,0 +1,16 @@
+{
+    "filename": "page.htm",
+    "filepath": "test:///page.htm",
+    "mtime": 1368381724,
+    "code": "<p>Hello World</p>",
+    "globals": {},
+    "format": "utf8",
+    "undefine": [],
+    "dependencies": {
+        "static": {},
+        "dynamic": {},
+        "computed": false
+    },
+    "warnings": [],
+    "errors": []
+}

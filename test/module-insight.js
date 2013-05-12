@@ -76,6 +76,7 @@ describe('module-insight', function() {
 
 				var waitfor = WAITFOR.serial(done);
 				files.forEach(function(file) {
+					if (/\.insight\.json$/.test(file)) return;
 					waitfor(function(done) {
 						var options = {
 							//debug: true,
@@ -99,11 +100,11 @@ describe('module-insight', function() {
 								if (MODE === "test") {
 									ASSERT.deepEqual(
 										descriptor,
-										JSON.parse(FS.readFileSync(PATH.join(__dirname, "assets", file.replace(/\.js$/, ".insight.json"))))
+										JSON.parse(FS.readFileSync(PATH.join(__dirname, "assets", file.replace(/\.[^\.]*$/, ".insight.json"))))
 									);
 								} else
 								if (MODE === "write") {
-									FS.writeFileSync(PATH.join(__dirname, "assets", file.replace(/\.js$/, ".insight.json")), JSON.stringify(descriptor, null, 4));
+									FS.writeFileSync(PATH.join(__dirname, "assets", file.replace(/\.[^\.]*$/, ".insight.json")), JSON.stringify(descriptor, null, 4));
 								} else {
 									throw new Error("Unknown `MODE`");
 								}

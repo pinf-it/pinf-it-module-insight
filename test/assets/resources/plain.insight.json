@@ -1,0 +1,16 @@
+{
+    "filename": "plain.txt",
+    "filepath": "test:///plain.txt",
+    "mtime": 1368381736,
+    "code": "Hello World",
+    "globals": {},
+    "format": "utf8",
+    "undefine": [],
+    "dependencies": {
+        "static": {},
+        "dynamic": {},
+        "computed": false
+    },
+    "warnings": [],
+    "errors": []
+}

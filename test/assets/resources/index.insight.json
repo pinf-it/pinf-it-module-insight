@@ -1,0 +1,16 @@
+{
+    "filename": "index.html",
+    "filepath": "test:///index.html",
+    "mtime": 1368381728,
+    "code": "<p>Hello World</p>",
+    "globals": {},
+    "format": "utf8",
+    "undefine": [],
+    "dependencies": {
+        "static": {},
+        "dynamic": {},
+        "computed": false
+    },
+    "warnings": [],
+    "errors": []
+}

@@ -1,0 +1,16 @@
+{
+    "filename": "icon-tif.tif",
+    "filepath": "test:///icon-tif.tif",
+    "mtime": 1368381790,
+    "code": null,
+    "globals": {},
+    "format": "binary",
+    "undefine": [],
+    "dependencies": {
+        "static": {},
+        "dynamic": {},
+        "computed": false
+    },
+    "warnings": [],
+    "errors": []
+}

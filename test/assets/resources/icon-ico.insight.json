@@ -1,0 +1,16 @@
+{
+    "filename": "icon-ico.ico",
+    "filepath": "test:///icon-ico.ico",
+    "mtime": 1368381863,
+    "code": null,
+    "globals": {},
+    "format": "binary",
+    "undefine": [],
+    "dependencies": {
+        "static": {},
+        "dynamic": {},
+        "computed": false
+    },
+    "warnings": [],
+    "errors": []
+}

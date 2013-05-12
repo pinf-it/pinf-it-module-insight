@@ -1,0 +1,16 @@
+{
+    "filename": "icon-bmp.bmp",
+    "filepath": "test:///icon-bmp.bmp",
+    "mtime": 1368381781,
+    "code": null,
+    "globals": {},
+    "format": "binary",
+    "undefine": [],
+    "dependencies": {
+        "static": {},
+        "dynamic": {},
+        "computed": false
+    },
+    "warnings": [],
+    "errors": []
+}

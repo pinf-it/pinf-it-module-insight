@@ -1,0 +1,16 @@
+{
+    "filename": "icon-png.png",
+    "filepath": "test:///icon-png.png",
+    "mtime": 1368381811,
+    "code": null,
+    "globals": {},
+    "format": "binary",
+    "undefine": [],
+    "dependencies": {
+        "static": {},
+        "dynamic": {},
+        "computed": false
+    },
+    "warnings": [],
+    "errors": []
+}

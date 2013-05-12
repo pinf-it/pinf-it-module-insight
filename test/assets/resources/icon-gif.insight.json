@@ -1,0 +1,16 @@
+{
+    "filename": "icon-gif.gif",
+    "filepath": "test:///icon-gif.gif",
+    "mtime": 1368381754,
+    "code": null,
+    "globals": {},
+    "format": "binary",
+    "undefine": [],
+    "dependencies": {
+        "static": {},
+        "dynamic": {},
+        "computed": false
+    },
+    "warnings": [],
+    "errors": []
+}

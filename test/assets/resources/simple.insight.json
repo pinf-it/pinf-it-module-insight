@@ -1,0 +1,16 @@
+{
+    "filename": "simple.json",
+    "filepath": "test:///simple.json",
+    "mtime": 1368382088,
+    "code": "{\n\t\"hello\": \"world\"\n}",
+    "globals": {},
+    "format": "utf8",
+    "undefine": [],
+    "dependencies": {
+        "static": {},
+        "dynamic": {},
+        "computed": false
+    },
+    "warnings": [],
+    "errors": []
+}
