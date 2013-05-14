@@ -15,4 +15,5 @@
     }
 }(function ($) {
     $.fn.jqueryPlugin = function () {};
+    return $;
 }));

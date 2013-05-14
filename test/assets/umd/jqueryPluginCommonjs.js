@@ -20,4 +20,5 @@
     }
 }(function ($) {
     $.fn.jqueryPluginCommonJs = function () {};
+    return $;
 }));

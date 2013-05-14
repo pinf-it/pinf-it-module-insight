@@ -1,3 +1,4 @@
+// @see https://github.com/umdjs/umd/blob/master/amdWeb.js
 // Uses AMD or browser globals to create a module.
 
 // If you want something that will also work in Node, see returnExports.js
@@ -29,5 +30,10 @@
     // Just return a value to define the module export.
     // This example returns an object, but the module
     // can return a function as the exported value.
-    return {};
+    return {
+        STRING: "string-value",
+        OBJECT: {
+            id: "object-value"
+        }
+    };
 }));

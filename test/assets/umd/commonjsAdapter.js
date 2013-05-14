@@ -22,4 +22,8 @@ define(function (require, exports, module) {
     // Only attach properties to the exports object to define
     // the module's properties.
     exports.action = function () {};
+    exports.STRING = "string-value";
+	exports.OBJECT = {
+		id: "object-value"
+	};
 });

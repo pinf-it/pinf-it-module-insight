@@ -19,5 +19,12 @@ if (typeof module === 'object' && typeof define !== 'function') {
 define(function (require, exports, module) {
     var b = require('b');
 
-    return function () {};
+    return function () {
+    	return {
+	        STRING: "string-value",
+	        OBJECT: {
+	            id: "object-value"
+	        }
+	    };
+    };
 });

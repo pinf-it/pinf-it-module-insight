@@ -34,4 +34,8 @@
     // attach properties to the exports object to define
     // the exported module properties.
     exports.action = function () {};
+    exports.STRING = "string-value";
+    exports.OBJECT = {
+        id: "object-value"
+    };
 }));
