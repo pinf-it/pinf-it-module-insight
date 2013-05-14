@@ -1,20 +1,24 @@
 {
     "filename": "nestedRequire-a.js",
     "filepath": "test:///nestedRequire-a.js",
-    "mtime": 1366562994,
-    "code": "// @see https://github.com/jrburke/requirejs/blob/master/tests/nestedRequire/a.js\ndefine(['base'], function (base) {\n    return {\n        name: 'a',\n        counter: 0,\n        doSomething: function () {\n            this.counter += 1;\n            this.base = base;\n            //This should not cause double notifications.\n            require(['base'], function () {\n            });\n        }\n    };\n});",
+    "mtime": 1368468877,
+    "code": "// @see https://github.com/jrburke/requirejs/blob/master/tests/nestedRequire/a.js\ndefine(['q', 'base'], function (Q, base) {\n\n    var deferred = Q.defer();\n\n    var api = {\n        name: 'a',\n        counter: 0,\n        doSomething: function () {\n            this.counter += 1;\n            this.base = base;\n            var deferred = Q.defer();\n            try {\n                require(['base'], function () {\n                    deferred.resolve();\n                });\n            } catch(err) {\n                deferred.reject(err);\n            }\n            return deferred.promise;\n        }\n    };\n\n    api.doSomething().then(function() {\n        deferred.resolve(api);\n    }, deferred.reject);\n\n    return deferred.promise;\n});",
     "globals": {
         "define": {
-            "type": "variable"
+            "type": "call"
         },
         "require": {
-            "type": "variable"
+            "type": "call"
         }
     },
     "format": "amd",
     "undefine": [],
     "dependencies": {
         "static": {
+            "q": {
+                "where": "declared",
+                "varname": "Q"
+            },
             "base": {
                 "where": "declared",
                 "varname": "base"
