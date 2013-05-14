@@ -5,7 +5,7 @@
     "code": "\nexports.STRING = \"string-value\";\n\nexports.OBJECT = {\n\tid: \"object-value\"\n};\n",
     "globals": {
         "exports": {
-            "type": "variable"
+            "type": "reference"
         }
     },
     "format": "commonjs",

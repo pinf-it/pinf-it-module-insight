@@ -8,7 +8,7 @@
             "type": "typeof"
         },
         "jQuery": {
-            "type": "variable"
+            "type": "reference"
         }
     },
     "format": "amd-ish",

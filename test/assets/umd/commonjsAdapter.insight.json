@@ -11,15 +11,16 @@
             "type": "typeof"
         },
         "require": {
-            "type": "variable"
+            "type": "reference"
         },
         "module": {
-            "type": "variable"
+            "type": "reference"
         }
     },
-    "format": "commonjs",
+    "format": "amd-ish",
     "undefine": [
-        "define"
+        "exports",
+        "module"
     ],
     "dependencies": {
         "static": {

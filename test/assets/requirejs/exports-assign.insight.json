@@ -5,7 +5,7 @@
     "code": "// @see https://github.com/jrburke/requirejs/blob/master/tests/exports/assign.js\ndefine(\"assign\",\n            [\"require\", \"exports\", \"module\"],\n            function (require, exports, module) {\n    module.exports = \"assign\";\n});",
     "globals": {
         "define": {
-            "type": "variable"
+            "type": "call"
         }
     },
     "format": "amd",

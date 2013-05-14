@@ -5,7 +5,7 @@
     "code": "((function (window) {\n\n\twindow.GLOBAL_STRING = \"global-string-value\";\n\n\twindow.GLOBAL_OBJECT = {\n\t\tid: \"global-object-value\"\n\t};\n\n})(window));",
     "globals": {
         "window": {
-            "type": "variable"
+            "type": "reference"
         }
     },
     "format": null,

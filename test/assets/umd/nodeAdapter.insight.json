@@ -7,14 +7,11 @@
         "module": {
             "type": "typeof"
         },
-        "define": {
-            "type": "typeof"
-        },
         "require": {
-            "type": "variable"
+            "type": "reference"
         },
         "exports": {
-            "type": "variable"
+            "type": "reference"
         }
     },
     "format": "amd-ish",

@@ -11,13 +11,13 @@
             "type": "typeof"
         },
         "require": {
-            "type": "variable"
+            "type": "reference"
         },
         "forge": {
-            "type": "variable"
+            "type": "assign"
         },
         "window": {
-            "type": "variable"
+            "type": "reference"
         }
     },
     "format": "amd-ish",

@@ -5,7 +5,7 @@
     "code": "// @see https://github.com/jrburke/requirejs/blob/master/tests/anon/yellow.js\ndefine(\"yellow\", {\n    name: \"yellow\"\n});",
     "globals": {
         "define": {
-            "type": "variable"
+            "type": "call"
         }
     },
     "format": "amd",

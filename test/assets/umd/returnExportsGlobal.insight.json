@@ -8,23 +8,24 @@
             "type": "typeof"
         },
         "module": {
-            "type": "variable"
+            "type": "reference"
         },
         "require": {
-            "type": "variable"
+            "type": "call"
         },
         "define": {
             "type": "typeof"
         }
     },
-    "format": "commonjs",
+    "format": "amd-ish",
     "undefine": [
-        "define"
+        "exports",
+        "module"
     ],
     "dependencies": {
         "static": {
             "b": {
-                "where": "inline"
+                "where": "declared"
             }
         },
         "dynamic": {},

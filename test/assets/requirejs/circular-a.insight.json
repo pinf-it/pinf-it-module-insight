@@ -5,7 +5,7 @@
     "code": "// @see https://github.com/jrburke/requirejs/blob/master/tests/circular/a.js\ndefine(['b', 'exports'], function (b, exports) {\n    exports.name = 'a';\n    exports.b = b;\n});",
     "globals": {
         "define": {
-            "type": "variable"
+            "type": "call"
         }
     },
     "format": "amd",

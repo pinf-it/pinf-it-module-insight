@@ -5,7 +5,7 @@
     "code": "// @see https://github.com/jrburke/requirejs/blob/master/tests/nestedDefine/four.js\ndefine(['two', 'three'], function (two, three) {\n    return {\n        name: 'four',\n        twoName: two.name,\n        threeName: three.name\n    };\n});",
     "globals": {
         "define": {
-            "type": "variable"
+            "type": "call"
         }
     },
     "format": "amd",

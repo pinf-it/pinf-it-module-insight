@@ -8,23 +8,23 @@
             "type": "typeof"
         },
         "require": {
-            "type": "variable"
+            "type": "call"
         },
         "define": {
             "type": "typeof"
         },
         "jQuery": {
-            "type": "variable"
+            "type": "reference"
         }
     },
-    "format": "commonjs",
+    "format": "amd-ish",
     "undefine": [
-        "define"
+        "exports"
     ],
     "dependencies": {
         "static": {
             "jquery": {
-                "where": "inline"
+                "where": "declared"
             }
         },
         "dynamic": {},

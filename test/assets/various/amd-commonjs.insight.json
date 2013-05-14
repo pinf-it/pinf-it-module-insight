@@ -11,10 +11,10 @@
             "type": "typeof"
         },
         "require": {
-            "type": "variable"
+            "type": "reference"
         },
         "window": {
-            "type": "variable"
+            "type": "reference"
         }
     },
     "format": "amd-ish",

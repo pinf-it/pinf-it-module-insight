@@ -11,13 +11,13 @@
             "type": "typeof"
         },
         "module": {
-            "type": "variable"
+            "type": "reference"
         },
         "require": {
-            "type": "variable"
+            "type": "call"
         },
         "window": {
-            "type": "variable"
+            "type": "reference"
         }
     },
     "format": "amd-ish",

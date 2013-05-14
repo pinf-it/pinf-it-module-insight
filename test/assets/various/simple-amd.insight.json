@@ -5,7 +5,7 @@
     "code": "\ndefine(function() {\n\treturn {\n\t\tSTRING: \"string-value\",\n\t\tOBJECT: {\n\t\t\tid: \"object-value\"\n\t\t}\n\t};\n});\n",
     "globals": {
         "define": {
-            "type": "variable"
+            "type": "call"
         }
     },
     "format": "amd",
