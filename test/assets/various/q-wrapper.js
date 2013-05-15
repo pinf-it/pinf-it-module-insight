@@ -67,8 +67,7 @@ if (typeof setImmediate === "function") {
     })();
 }
 
-function Q() {
-}
+var Q = {};
 
 Q.STRING = "string-value";
 Q.OBJECT = {

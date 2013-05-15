@@ -19,6 +19,6 @@
         factory(jQuery);
     }
 }(function ($) {
-    $.fn.jqueryPluginCommonJs = function () {};
+    $.fn.jqueryPluginCommonJs = {};
     return $;
 }));

@@ -1520,6 +1520,12 @@ function nodeify(promise, nodeback) {
 // All code before this point will be filtered from stack traces.
 var qEndingLine = captureLine();
 
+Q = {};
+Q.STRING = "string-value";
+Q.OBJECT = {
+    id: "object-value"
+};
+
 return Q;
 
 });

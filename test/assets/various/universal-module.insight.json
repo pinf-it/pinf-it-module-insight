@@ -16,7 +16,11 @@
         "exports"
     ],
     "dependencies": {
-        "static": {},
+        "static": {
+            "exports": {
+                "where": "declared"
+            }
+        },
         "dynamic": {},
         "computed": false
     },

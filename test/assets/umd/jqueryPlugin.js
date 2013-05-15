@@ -14,6 +14,6 @@
         factory(jQuery);
     }
 }(function ($) {
-    $.fn.jqueryPlugin = function () {};
+    $.fn.jqueryPlugin = {};
     return $;
 }));

@@ -18,8 +18,7 @@ var
 	_$ = window.$,
 
 	// Define a local copy of jQuery
-	jQuery = function( selector, context ) {
-	};
+	jQuery = {};
 
 // Limit scope pollution from any deprecated API
 // (function() {
@@ -28,6 +27,7 @@ var
 // Expose jQuery to the global object
 window.jQuery = window.$ = jQuery;
 
+jQuery.fn = {};
 jQuery.STRING = "string-value";
 jQuery.OBJECT = {
     id: "object-value"
