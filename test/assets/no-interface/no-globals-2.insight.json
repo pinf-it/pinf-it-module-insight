@@ -5,7 +5,7 @@
     "code": "\n(function() {\n\n\tvar exports = {};\n\n\t(function() {\n\n\t\texports.STRING = \"string-value\";\n\n\t\texports.OBJECT = {\n\t\t\tid: \"object-value\"\n\t\t};\n\n\t})();\n\n})();\n",
     "globals": {},
     "syntax": "javascript",
-    "format": null,
+    "format": "encapsulated",
     "undefine": [],
     "dependencies": {
         "static": {},
@@ -16,10 +16,6 @@
         [
             "parse-generic",
             "No global variables found. Thus cannot interface with code."
-        ],
-        [
-            "parse",
-            "Could not detect module format."
         ]
     ],
     "errors": []
