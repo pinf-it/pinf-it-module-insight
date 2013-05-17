@@ -1,25 +1,21 @@
 {
     "filename": "simple-window-nopollute-leak.js",
     "filepath": "test:///simple-window-nopollute-leak.js",
-    "mtime": 1366479052,
-    "code": "((function () {\n\n\twindow.GLOBAL_STRING = \"global-string-value\";\n\n\twindow.GLOBAL_OBJECT = {\n\t\tid: \"global-object-value\"\n\t};\n\n})());",
+    "mtime": 1368763412,
+    "code": "((function () {\n\n\twindow.STRING = \"string-value\";\n\n\twindow.OBJECT = {\n\t\tid: \"object-value\"\n\t};\n\n})());",
     "globals": {
         "window": {
             "type": "reference"
         }
     },
-    "format": null,
+    "syntax": "javascript",
+    "format": "leaky",
     "undefine": [],
     "dependencies": {
         "static": {},
         "dynamic": {},
         "computed": false
     },
-    "warnings": [
-        [
-            "parse",
-            "Could not detect module format."
-        ]
-    ],
+    "warnings": [],
     "errors": []
 }

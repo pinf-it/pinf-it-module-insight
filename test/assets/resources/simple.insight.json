@@ -4,6 +4,7 @@
     "mtime": 1368382088,
     "code": "{\n\t\"hello\": \"world\"\n}",
     "globals": {},
+    "syntax": "json",
     "format": "json",
     "undefine": [],
     "dependencies": {

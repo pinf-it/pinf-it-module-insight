@@ -4,6 +4,7 @@
     "mtime": 1368381728,
     "code": "<p>Hello World</p>",
     "globals": {},
+    "syntax": null,
     "format": "utf8",
     "undefine": [],
     "dependencies": {

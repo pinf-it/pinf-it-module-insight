@@ -38,6 +38,7 @@
             "type": "assign"
         }
     },
+    "syntax": "javascript",
     "format": "amd-ish",
     "undefine": [
         "exports",

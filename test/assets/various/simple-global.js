@@ -1,6 +1,6 @@
 
-GLOBAL_STRING = "global-string-value";
+STRING = "string-value";
 
-GLOBAL_OBJECT = {
-	id: "global-object-value"
+OBJECT = {
+	id: "object-value"
 };

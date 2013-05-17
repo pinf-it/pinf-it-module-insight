@@ -8,6 +8,7 @@
             "type": "reference"
         }
     },
+    "syntax": "javascript",
     "format": "commonjs",
     "undefine": [],
     "dependencies": {

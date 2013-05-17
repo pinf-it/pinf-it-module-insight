@@ -37,7 +37,7 @@ describe('module-insight', function() {
 			});
 		}
 
-		it('should wrap various PHP files', function(done) {
+		it('should parse various PHP files', function(done) {
 
 			return getFiles([
 				"various/*.php"
@@ -64,7 +64,7 @@ describe('module-insight', function() {
 
 		});
 
-		it('should wrap various JavaScript files', function(done) {
+		it('should parse various JavaScript files', function(done) {
 
 			return getFiles([
 				"no-interface/*.js",
