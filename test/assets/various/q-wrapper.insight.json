@@ -46,6 +46,7 @@
         "bootstrap",
         "ses"
     ],
+    "uses": {},
     "dependencies": {
         "static": {},
         "dynamic": {},

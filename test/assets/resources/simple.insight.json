@@ -7,6 +7,7 @@
     "syntax": "json",
     "format": "json",
     "undefine": [],
+    "uses": {},
     "dependencies": {
         "static": {},
         "dynamic": {},

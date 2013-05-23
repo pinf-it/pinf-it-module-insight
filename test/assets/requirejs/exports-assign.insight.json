@@ -11,6 +11,7 @@
     "syntax": "javascript",
     "format": "amd",
     "undefine": [],
+    "uses": {},
     "dependencies": {
         "static": {
             "require": {

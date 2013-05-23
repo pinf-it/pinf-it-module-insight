@@ -11,6 +11,7 @@
     "syntax": "javascript",
     "format": "leaky",
     "undefine": [],
+    "uses": {},
     "dependencies": {
         "static": {},
         "dynamic": {},

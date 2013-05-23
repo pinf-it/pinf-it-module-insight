@@ -1,0 +1,27 @@
+{
+    "filename": "require-main.js",
+    "filepath": "test:///require-main.js",
+    "mtime": 1369154206,
+    "code": "\nfunction main() {\n\tconsole.log(\"Hello World\");\n}\n\nif (require.main === module) {\n\tmain();\n}\n",
+    "globals": {
+        "main": {
+            "type": "assign"
+        },
+        "console": {
+            "type": "reference"
+        }
+    },
+    "syntax": "javascript",
+    "format": "leaky",
+    "undefine": [],
+    "uses": {
+        "require.main": true
+    },
+    "dependencies": {
+        "static": {},
+        "dynamic": {},
+        "computed": false
+    },
+    "warnings": [],
+    "errors": []
+}

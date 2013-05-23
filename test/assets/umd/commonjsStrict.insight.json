@@ -19,6 +19,7 @@
     "undefine": [
         "exports"
     ],
+    "uses": {},
     "dependencies": {
         "static": {
             "exports": {

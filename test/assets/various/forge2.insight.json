@@ -25,6 +25,7 @@
     "undefine": [
         "module"
     ],
+    "uses": {},
     "dependencies": {
         "static": {
             "require": {

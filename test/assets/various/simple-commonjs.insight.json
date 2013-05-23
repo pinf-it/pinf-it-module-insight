@@ -11,6 +11,7 @@
     "syntax": "javascript",
     "format": "commonjs",
     "undefine": [],
+    "uses": {},
     "dependencies": {
         "static": {},
         "dynamic": {},
