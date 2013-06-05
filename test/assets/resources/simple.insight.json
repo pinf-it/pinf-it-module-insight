@@ -1,6 +1,6 @@
 {
     "filename": "simple.json",
-    "filepath": "test:///simple.json",
+    "filepath": "resources/simple.json",
     "mtime": 1368382088,
     "code": "{\n\t\"hello\": \"world\"\n}",
     "globals": {},

@@ -49,9 +49,9 @@ describe('module-insight', function() {
 					waitfor(function(done) {
 						var options = {
 							//debug: true,
-							test: true
+							rootPath: PATH.join(__dirname, "assets")
 						};
-						return MODULE_INSIGHT.parseFile(PATH.join(__dirname, "assets", file), options, function(err, descriptor) {
+						return MODULE_INSIGHT.parseFile(file, options, function(err, descriptor) {
 
 							ASSERT.equal(typeof err, "object");
 							ASSERT.equal(err.message, "Parsing of PHP files is planned but not yet implemented");
@@ -81,9 +81,9 @@ describe('module-insight', function() {
 					waitfor(function(done) {
 						var options = {
 							//debug: true,
-							test: true
+							rootPath: PATH.join(__dirname, "assets")
 						};
-						return MODULE_INSIGHT.parseFile(PATH.join(__dirname, "assets", file), options, function(err, descriptor) {
+						return MODULE_INSIGHT.parseFile(file, options, function(err, descriptor) {
 							if (err) return done(err);
 
 							try {
@@ -101,11 +101,11 @@ describe('module-insight', function() {
 								if (MODE === "test") {
 									ASSERT.deepEqual(
 										descriptor,
-										JSON.parse(FS.readFileSync(PATH.join(__dirname, "assets", file.replace(/\.[^\.]*$/, ".insight.json"))))
+										JSON.parse(FS.readFileSync(PATH.join(options.rootPath, file.replace(/\.[^\.]*$/, ".insight.json"))))
 									);
 								} else
 								if (MODE === "write") {
-									FS.writeFileSync(PATH.join(__dirname, "assets", file.replace(/\.[^\.]*$/, ".insight.json")), JSON.stringify(descriptor, null, 4));
+									FS.writeFileSync(PATH.join(options.rootPath, file.replace(/\.[^\.]*$/, ".insight.json")), JSON.stringify(descriptor, null, 4));
 								} else {
 									throw new Error("Unknown `MODE`");
 								}

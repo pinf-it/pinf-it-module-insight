@@ -1,6 +1,6 @@
 {
     "filename": "simple-global-var.js",
-    "filepath": "test:///simple-global-var.js",
+    "filepath": "various/simple-global-var.js",
     "mtime": 1368763380,
     "code": "\nvar STRING = \"string-value\";\n\nvar OBJECT = {\n\tid: \"object-value\"\n};\n",
     "globals": {

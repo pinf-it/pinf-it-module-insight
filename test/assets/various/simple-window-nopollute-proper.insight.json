@@ -1,6 +1,6 @@
 {
     "filename": "simple-window-nopollute-proper.js",
-    "filepath": "test:///simple-window-nopollute-proper.js",
+    "filepath": "various/simple-window-nopollute-proper.js",
     "mtime": 1368763431,
     "code": "((function (window) {\n\n\twindow.STRING = \"string-value\";\n\n\twindow.OBJECT = {\n\t\tid: \"object-value\"\n\t};\n\n})(window));",
     "globals": {

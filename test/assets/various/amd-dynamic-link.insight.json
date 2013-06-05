@@ -1,6 +1,6 @@
 {
     "filename": "amd-dynamic-link.js",
-    "filepath": "test:///amd-dynamic-link.js",
+    "filepath": "various/amd-dynamic-link.js",
     "mtime": 1368588622,
     "code": "// @see https://github.com/jrburke/requirejs/blob/master/tests/nestedRequire/a.js\ndefine(['q-lib'], function (Q) {\n\n    var deferred = Q.defer();\n\n    var api = {\n        name: 'a',\n        counter: 0,\n        doSomething: function () {\n            var self = this;\n            self.counter += 1;\n            var deferred = Q.defer();\n            try {\n                require(['base'], function (base) {\n                    self.base = base;\n                    deferred.resolve();\n                });\n            } catch(err) {\n                deferred.reject(err);\n            }\n            return deferred.promise;\n        }\n    };\n\n    api.doSomething().then(function() {\n        deferred.resolve(api);\n    }, deferred.reject);\n\n    return deferred.promise;\n});",
     "globals": {

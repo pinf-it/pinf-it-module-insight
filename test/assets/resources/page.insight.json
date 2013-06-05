@@ -1,6 +1,6 @@
 {
     "filename": "page.htm",
-    "filepath": "test:///page.htm",
+    "filepath": "resources/page.htm",
     "mtime": 1368381724,
     "code": "<p>Hello World</p>",
     "globals": {},

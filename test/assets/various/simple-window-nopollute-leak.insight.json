@@ -1,6 +1,6 @@
 {
     "filename": "simple-window-nopollute-leak.js",
-    "filepath": "test:///simple-window-nopollute-leak.js",
+    "filepath": "various/simple-window-nopollute-leak.js",
     "mtime": 1368763412,
     "code": "((function () {\n\n\twindow.STRING = \"string-value\";\n\n\twindow.OBJECT = {\n\t\tid: \"object-value\"\n\t};\n\n})());",
     "globals": {

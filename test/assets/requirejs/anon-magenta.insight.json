@@ -1,6 +1,6 @@
 {
     "filename": "anon-magenta.js",
-    "filepath": "test:///anon-magenta.js",
+    "filepath": "requirejs/anon-magenta.js",
     "mtime": 1366559327,
     "code": "// @see https://github.com/jrburke/requirejs/blob/master/tests/anon/magenta.js\ndefine(function (require, exports, module) {\n    //This is a fakeout require(\"fake1\");\n\n    var red = require(\"red\"),\n        blue = require('./blue'),\n        message = require('text!./message.txt');\n\n    /*\n     And another fakeoute require(\"fake2\");\n    */\n\n    //Use ugly exports\n    exports.name = red.name + blue.name;\n    exports.path = require.toUrl('./foo.html');\n    exports.message = message;\n});",
     "globals": {

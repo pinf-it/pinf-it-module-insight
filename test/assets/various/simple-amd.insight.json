@@ -1,6 +1,6 @@
 {
     "filename": "simple-amd.js",
-    "filepath": "test:///simple-amd.js",
+    "filepath": "various/simple-amd.js",
     "mtime": 1366479052,
     "code": "\ndefine(function() {\n\treturn {\n\t\tSTRING: \"string-value\",\n\t\tOBJECT: {\n\t\t\tid: \"object-value\"\n\t\t}\n\t};\n});\n",
     "globals": {

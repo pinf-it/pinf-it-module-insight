@@ -1,6 +1,6 @@
 {
     "filename": "anon-blue.js",
-    "filepath": "test:///anon-blue.js",
+    "filepath": "requirejs/anon-blue.js",
     "mtime": 1366559228,
     "code": "// @see https://github.com/jrburke/requirejs/blob/master/tests/anon/blue.js\ndefine(function () {\n    return {\n        name: \"blue\"\n    };\n});",
     "globals": {
