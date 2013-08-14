@@ -1,6 +1,7 @@
 {
     "filename": "require-main.js",
     "filepath": "various/require-main.js",
+    "mtime": 0,
     "code": "\nfunction main() {\n\tconsole.log(\"Hello World\");\n}\n\nif (require.main === module) {\n\tmain();\n}\n",
     "globals": {
         "main": {

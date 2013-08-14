@@ -1,6 +1,7 @@
 {
     "filename": "simple-window.js",
     "filepath": "various/simple-window.js",
+    "mtime": 0,
     "code": "\nwindow.STRING = \"string-value\";\n\nwindow.OBJECT = {\n\tid: \"object-value\"\n};\n",
     "globals": {
         "window": {

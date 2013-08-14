@@ -1,6 +1,7 @@
 {
     "filename": "exports-assign.js",
     "filepath": "requirejs/exports-assign.js",
+    "mtime": 0,
     "code": "// @see https://github.com/jrburke/requirejs/blob/master/tests/exports/assign.js\ndefine(\"assign\",\n            [\"require\", \"exports\", \"module\"],\n            function (require, exports, module) {\n    module.exports = \"assign\";\n});",
     "globals": {
         "define": {

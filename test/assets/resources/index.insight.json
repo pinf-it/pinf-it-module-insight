@@ -1,6 +1,7 @@
 {
     "filename": "index.html",
     "filepath": "resources/index.html",
+    "mtime": 0,
     "code": "<p>Hello World</p>",
     "globals": {},
     "syntax": null,

@@ -98,7 +98,7 @@ describe('module-insight', function() {
 									});
 								}
 
-								delete descriptor.mtime;
+								descriptor.mtime = 0;
 
 								if (MODE === "test") {
 									ASSERT.deepEqual(

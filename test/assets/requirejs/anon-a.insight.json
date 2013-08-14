@@ -1,6 +1,7 @@
 {
     "filename": "anon-a.js",
     "filepath": "requirejs/anon-a.js",
+    "mtime": 0,
     "code": "// @see https://github.com/jrburke/requirejs/blob/master/tests/anon/a.js\ndefine(function (require) {\n    var b =  require(\"sub/b\");\n    return {\n        name: \"a\",\n        bName: b.f()\n    };\n});",
     "globals": {
         "define": {

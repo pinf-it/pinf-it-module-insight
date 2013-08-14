@@ -1,6 +1,7 @@
 {
     "filename": "no-globals-1.js",
     "filepath": "no-interface/no-globals-1.js",
+    "mtime": 0,
     "code": "\n(function() {\n\n\tvar exports = {};\n\n\texports.STRING = \"string-value\";\n\n\texports.OBJECT = {\n\t\tid: \"object-value\"\n\t};\n\n})();\n",
     "globals": {},
     "syntax": "javascript",

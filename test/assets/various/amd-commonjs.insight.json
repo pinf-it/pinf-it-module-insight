@@ -1,6 +1,7 @@
 {
     "filename": "amd-commonjs.js",
     "filepath": "various/amd-commonjs.js",
+    "mtime": 0,
     "code": "// @see http://addyosmani.com/writing-modular-js/\n// exports object based version, if you need to make a\n// circular dependency or need compatibility with\n// commonjs-like environments that are not Node.\n(function (define) {\n    //The 'id' is optional, but recommended if this is\n    //a popular web library that is used mostly in\n    //non-AMD/Node environments. However, if want\n    //to make an anonymous module, remove the 'id'\n    //below, and remove the id use in the define shim.\n    define('id', function (require, exports) {\n        exports.STRING = \"string-value\";\n        exports.OBJECT = {\n            id: \"object-value\"\n        };\n    });\n}(typeof define === 'function' && define.amd ? define : function (id, factory) {\n    if (typeof exports !== 'undefined') {\n        //commonjs\n        factory(require, exports);\n    } else {\n        //Create a global function. Only works if\n        //the code does not have dependencies, or\n        //dependencies fit the call pattern below.\n        factory(function(value) {\n            return window[value];\n        }, (window[id] = {}));\n    }\n}));",
     "globals": {
         "define": {

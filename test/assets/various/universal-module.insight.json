@@ -1,6 +1,7 @@
 {
     "filename": "universal-module.js",
     "filepath": "various/universal-module.js",
+    "mtime": 0,
     "code": "// @see https://gist.github.com/kitcambridge/1251221\n(function (root, Library) {\n  // The square bracket notation is used to avoid property munging by the Closure Compiler.\n  if (typeof define == \"function\" && typeof define[\"amd\"] == \"object\" && define[\"amd\"]) {\n    // Export for asynchronous module loaders (e.g., RequireJS, `curl.js`).\n    define([\"exports\"], Library);\n  } else {\n    // Export for CommonJS environments, web browsers, and JavaScript engines.\n    Library = Library(typeof exports == \"object\" && exports || (root[\"Library\"] = {\n      \"noConflict\": (function (original) {\n        function noConflict() {\n          root[\"Library\"] = original;\n          // `noConflict` can't be invoked more than once.\n          delete Library.noConflict;\n          return Library;\n        }\n        return noConflict;\n      })(root[\"Library\"])\n    }));\n  }\n})(this, function (exports) {\n  exports.STRING = \"string-value\";\n  exports.OBJECT = {\n      id: \"object-value\"\n  };\n  return exports;\n});",
     "globals": {
         "define": {
