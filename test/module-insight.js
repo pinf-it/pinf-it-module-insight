@@ -98,6 +98,8 @@ describe('module-insight', function() {
 									});
 								}
 
+								delete descriptor.mtime;
+
 								if (MODE === "test") {
 									ASSERT.deepEqual(
 										descriptor,

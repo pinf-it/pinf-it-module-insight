@@ -1,7 +1,6 @@
 {
     "filename": "simple-global.js",
     "filepath": "various/simple-global.js",
-    "mtime": 1368763347,
     "code": "\nSTRING = \"string-value\";\n\nOBJECT = {\n\tid: \"object-value\"\n};\n",
     "globals": {
         "STRING": {

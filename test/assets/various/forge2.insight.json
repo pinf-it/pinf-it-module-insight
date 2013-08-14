@@ -1,7 +1,6 @@
 {
     "filename": "forge2.js",
     "filepath": "various/forge2.js",
-    "mtime": 1368294283,
     "code": "// @see https://github.com/digitalbazaar/forge/blob/master/js/task.js\n(function() {\n/* ########## Begin module implementation ########## */\nfunction initModule(forge) {\n\n\nforge.task = forge.util;\n\n\n} // end module implementation\n\n/* ########## Begin module wrapper ########## */\nvar name = 'task';\nvar deps = ['./util'];\nvar nodeDefine = null;\nif(typeof define !== 'function') {\n  // NodeJS -> AMD\n  if(typeof module === 'object' && module.exports) {\n    nodeDefine = function(ids, factory) {\n      factory(require, module);\n    };\n  }\n  // <script>\n  else {\n    forge = window.forge = window.forge || {};\n    initModule(forge);\n  }\n}\n// AMD\nif(nodeDefine || typeof define === 'function') {\n  // define module AMD style\n  (nodeDefine || define)(['require', 'module'].concat(deps),\n  function(require, module) {\n    module.exports = function(forge) {\n      var mods = deps.map(function(dep) {\n        return require(dep);\n      }).concat(initModule);\n      // handle circular dependencies\n      forge = forge || {};\n      forge.defined = forge.defined || {};\n      if(forge.defined[name]) {\n        return forge[name];\n      }\n      forge.defined[name] = true;\n      for(var i = 0; i < mods.length; ++i) {\n        mods[i](forge);\n      }\n      return forge[name];\n    };\n  });\n}\n})();\n",
     "globals": {
         "define": {

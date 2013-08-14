@@ -1,7 +1,6 @@
 {
     "filename": "circular-a.js",
     "filepath": "requirejs/circular-a.js",
-    "mtime": 1366559449,
     "code": "// @see https://github.com/jrburke/requirejs/blob/master/tests/circular/a.js\ndefine(['b', 'exports'], function (b, exports) {\n    exports.name = 'a';\n    exports.b = b;\n});",
     "globals": {
         "define": {

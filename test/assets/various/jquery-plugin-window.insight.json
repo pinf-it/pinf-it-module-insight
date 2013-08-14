@@ -1,7 +1,6 @@
 {
     "filename": "jquery-plugin-window.js",
     "filepath": "various/jquery-plugin-window.js",
-    "mtime": 1368549553,
     "code": "\n(function(window) {\n\n\t(function (factory) {\n\t    if (typeof define === 'function' && define.amd) {\n\t        // AMD. Register as an anonymous module.\n\t        define(['jquery'], factory);\n\t    } else {\n\t        // Browser globals\n\t        factory(jQuery);\n\t    }\n\t}(function ($) {\n\t    $.fn.jqueryPlugin = {};\n\t    return $;\n\t}));\n\n})(window);\n",
     "globals": {
         "window": {

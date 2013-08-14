@@ -1,7 +1,6 @@
 {
     "filename": "anon-yellow.js",
     "filepath": "requirejs/anon-yellow.js",
-    "mtime": 1366559399,
     "code": "// @see https://github.com/jrburke/requirejs/blob/master/tests/anon/yellow.js\ndefine(\"yellow\", {\n    name: \"yellow\"\n});",
     "globals": {
         "define": {

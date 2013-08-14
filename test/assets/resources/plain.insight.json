@@ -1,7 +1,6 @@
 {
     "filename": "plain.txt",
     "filepath": "resources/plain.txt",
-    "mtime": 1368381736,
     "code": "Hello World",
     "globals": {},
     "syntax": null,
