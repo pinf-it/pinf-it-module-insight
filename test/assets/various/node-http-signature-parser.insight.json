@@ -1,0 +1,71 @@
+{
+    "filename": "node-http-signature-parser.js",
+    "filepath": "various/node-http-signature-parser.js",
+    "mtime": 0,
+    "code": "\n// @source https://github.com/joyent/node-http-signature/blob/81ddc9f7100944f476cb1caf107488f4cb7c666e/lib/parser.js\n\n// Copyright 2012 Joyent, Inc.  All rights reserved.\n\nvar assert = require('assert-plus');\nvar util = require('util');\n\n\n\n///--- Globals\n\nvar Algorithms = {\n  'rsa-sha1': true,\n  'rsa-sha256': true,\n  'rsa-sha512': true,\n  'dsa-sha1': true,\n  'hmac-sha1': true,\n  'hmac-sha256': true,\n  'hmac-sha512': true\n};\n\nvar State = {\n  New: 0,\n  Params: 1\n};\n\nvar ParamsState = {\n  Name: 0,\n  Quote: 1,\n  Value: 2,\n  Comma: 3\n};\n\n\n\n///--- Specific Errors\n\nfunction HttpSignatureError(message, caller) {\n  if (Error.captureStackTrace)\n    Error.captureStackTrace(this, caller || HttpSignatureError);\n\n  this.message = message;\n  this.name = caller.name;\n}\nutil.inherits(HttpSignatureError, Error);\n\nfunction ExpiredRequestError(message) {\n  HttpSignatureError.call(this, message, ExpiredRequestError);\n}\nutil.inherits(ExpiredRequestError, HttpSignatureError);\n\n\nfunction InvalidHeaderError(message) {\n  HttpSignatureError.call(this, message, InvalidHeaderError);\n}\nutil.inherits(InvalidHeaderError, HttpSignatureError);\n\n\nfunction InvalidParamsError(message) {\n  HttpSignatureError.call(this, message, InvalidParamsError);\n}\nutil.inherits(InvalidParamsError, HttpSignatureError);\n\n\nfunction MissingHeaderError(message) {\n  HttpSignatureError.call(this, message, MissingHeaderError);\n}\nutil.inherits(MissingHeaderError, HttpSignatureError);\n\n\n\n///--- Exported API\n\nmodule.exports = {\n\n  /**\n   * Parses the 'Authorization' header out of an http.ServerRequest object.\n   *\n   * Note that this API will fully validate the Authorization header, and throw\n   * on any error.  It will not however check the signature, or the keyId format\n   * as those are specific to your environment.  You can use the options object\n   * to pass in extra constraints.\n   *\n   * As a response object you can expect this:\n   *\n   *     {\n   *       \"scheme\": \"Signature\",\n   *       \"params\": {\n   *         \"keyId\": \"foo\",\n   *         \"algorithm\": \"rsa-sha256\",\n   *         \"headers\": [\n   *           \"date\" or \"x-date\",\n   *           \"content-md5\"\n   *         ],\n   *         \"signature\": \"base64\"\n   *       },\n   *       \"signingString\": \"ready to be passed to crypto.verify()\"\n   *     }\n   *\n   * @param {Object} request an http.ServerRequest.\n   * @param {Object} options an optional options object with:\n   *                   - clockSkew: allowed clock skew in seconds (default 300).\n   *                   - headers: required header names (def: date or x-date)\n   *                   - algorithms: algorithms to support (default: all).\n   * @return {Object} parsed out object (see above).\n   * @throws {TypeError} on invalid input.\n   * @throws {InvalidHeaderError} on an invalid Authorization header error.\n   * @throws {InvalidParamsError} if the params in the scheme are invalid.\n   * @throws {MissingHeaderError} if the params indicate a header not present,\n   *                              either in the request headers from the params,\n   *                              or not in the params from a required header\n   *                              in options.\n   * @throws {ExpiredRequestError} if the value of date or x-date exceeds skew.\n   */\n  parseRequest: function parseRequest(request, options) {\n    assert.object(request, 'request');\n    assert.object(request.headers, 'request.headers');\n    if (options === undefined) {\n      options = {};\n    }\n    if (options.headers === undefined) {\n      options.headers = [request.headers['x-date'] ? 'x-date' : 'date'];\n    }\n    assert.object(options, 'options');\n    assert.arrayOfString(options.headers, 'options.headers');\n    assert.optionalNumber(options.clockSkew, 'options.clockSkew');\n\n    if (!request.headers.authorization)\n      throw new MissingHeaderError('no authorization header present in ' +\n                                   'the request');\n\n    options.clockSkew = options.clockSkew || 300;\n\n\n    var i = 0;\n    var state = State.New;\n    var substate = ParamsState.Name;\n    var tmpName = '';\n    var tmpValue = '';\n\n    var parsed = {\n      scheme: '',\n      params: {},\n      signingString: '',\n\n      get algorithm() {\n        return this.params.algorithm.toUpperCase();\n      },\n\n      get keyId() {\n        return this.params.keyId;\n      }\n\n    };\n\n    var authz = request.headers.authorization;\n    for (i = 0; i < authz.length; i++) {\n      var c = authz.charAt(i);\n\n      switch (Number(state)) {\n\n      case State.New:\n        if (c !== ' ') parsed.scheme += c;\n        else state = State.Params;\n        break;\n\n      case State.Params:\n        switch (Number(substate)) {\n\n        case ParamsState.Name:\n          var code = c.charCodeAt(0);\n          // restricted name of A-Z / a-z\n          if ((code >= 0x41 && code <= 0x5a) || // A-Z\n              (code >= 0x61 && code <= 0x7a)) { // a-z\n            tmpName += c;\n          } else if (c === '=') {\n            if (tmpName.length === 0)\n              throw new InvalidHeaderError('bad param format');\n            substate = ParamsState.Quote;\n          } else {\n            throw new InvalidHeaderError('bad param format');\n          }\n          break;\n\n        case ParamsState.Quote:\n          if (c === '\"') {\n            tmpValue = '';\n            substate = ParamsState.Value;\n          } else {\n            throw new InvalidHeaderError('bad param format');\n          }\n          break;\n\n        case ParamsState.Value:\n          if (c === '\"') {\n            parsed.params[tmpName] = tmpValue;\n            substate = ParamsState.Comma;\n          } else {\n            tmpValue += c;\n          }\n          break;\n\n        case ParamsState.Comma:\n          if (c === ',') {\n            tmpName = '';\n            substate = ParamsState.Name;\n          } else {\n            throw new InvalidHeaderError('bad param format');\n          }\n          break;\n\n        default:\n          throw new Error('Invalid substate');\n        }\n        break;\n\n      default:\n        throw new Error('Invalid substate');\n      }\n\n    }\n\n    if (!parsed.params.headers || parsed.params.headers === '') {\n      if (request.headers['x-date']) {\n        parsed.params.headers = ['x-date'];\n      } else {\n        parsed.params.headers = ['date'];\n      }\n    } else {\n      parsed.params.headers = parsed.params.headers.split(' ');\n    }\n\n    // Minimally validate the parsed object\n    if (!parsed.scheme || parsed.scheme !== 'Signature')\n      throw new InvalidHeaderError('scheme was not \"Signature\"');\n\n    if (!parsed.params.keyId)\n      throw new InvalidHeaderError('keyId was not specified');\n\n    if (!parsed.params.algorithm)\n      throw new InvalidHeaderError('algorithm was not specified');\n\n    if (!parsed.params.signature)\n      throw new InvalidHeaderError('signature was not specified');\n\n    // Check the algorithm against the official list\n    parsed.params.algorithm = parsed.params.algorithm.toLowerCase();\n    if (!Algorithms[parsed.params.algorithm])\n      throw new InvalidParamsError(parsed.params.algorithm +\n                                   ' is not supported');\n\n    // Build the signingString\n    for (i = 0; i < parsed.params.headers.length; i++) {\n      var h = parsed.params.headers[i].toLowerCase();\n      parsed.params.headers[i] = h;\n\n      if (h !== 'request-line') {\n        var value = request.headers[h];\n        if (!value)\n          throw new MissingHeaderError(h + ' was not in the request');\n        parsed.signingString += h + ': ' + value;\n      } else {\n        parsed.signingString +=\n          request.method + ' ' + request.url + ' HTTP/' + request.httpVersion;\n      }\n\n      if ((i + 1) < parsed.params.headers.length)\n        parsed.signingString += '\\n';\n    }\n\n    // Check against the constraints\n    var date;\n    if (request.headers.date || request.headers['x-date']) {\n        if (request.headers['x-date']) {\n          date = new Date(request.headers['x-date']);\n        } else {\n          date = new Date(request.headers.date);\n        }\n      var now = new Date();\n      var skew = Math.abs(now.getTime() - date.getTime());\n\n      if (skew > options.clockSkew * 1000) {\n        throw new ExpiredRequestError('clock skew of ' +\n                                      (skew / 1000) +\n                                      's was greater than ' +\n                                      options.clockSkew + 's');\n      }\n    }\n\n    options.headers.forEach(function (hdr) {\n      // Remember that we already checked any headers in the params\n      // were in the request, so if this passes we're good.\n      if (parsed.params.headers.indexOf(hdr) < 0)\n        throw new MissingHeaderError(hdr + ' was not a signed header');\n    });\n\n    if (options.algorithms) {\n      if (options.algorithms.indexOf(parsed.params.algorithm) === -1)\n        throw new InvalidParamsError(parsed.params.algorithm +\n                                     ' is not a supported algorithm');\n    }\n\n    return parsed;\n  }\n\n};\n",
+    "globals": {
+        "assert": {
+            "type": "assign"
+        },
+        "require": {
+            "type": "call"
+        },
+        "util": {
+            "type": "assign"
+        },
+        "Algorithms": {
+            "type": "assign"
+        },
+        "State": {
+            "type": "assign"
+        },
+        "ParamsState": {
+            "type": "assign"
+        },
+        "HttpSignatureError": {
+            "type": "assign"
+        },
+        "Error": {
+            "type": "reference"
+        },
+        "ExpiredRequestError": {
+            "type": "assign"
+        },
+        "InvalidHeaderError": {
+            "type": "assign"
+        },
+        "InvalidParamsError": {
+            "type": "assign"
+        },
+        "MissingHeaderError": {
+            "type": "assign"
+        },
+        "module": {
+            "type": "reference"
+        },
+        "Number": {
+            "type": "call"
+        },
+        "Math": {
+            "type": "reference"
+        }
+    },
+    "syntax": "javascript",
+    "format": "leaky",
+    "undefine": [],
+    "uses": {},
+    "dependencies": {
+        "static": {
+            "assert-plus": {
+                "where": "inline"
+            },
+            "util": {
+                "where": "inline"
+            }
+        },
+        "dynamic": {},
+        "computed": false
+    },
+    "warnings": [],
+    "errors": []
+}
