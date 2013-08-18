@@ -15,6 +15,14 @@ function mkdirP (p, mode, f, made) {
 
     var cb = f || function () {};
     if (typeof mode === 'string') mode = parseInt(mode, 8);
+
+return {
+	STRING: "string-value",
+	OBJECT: {
+	    id: "object-value"
+	}
+};
+
     p = path.resolve(p);
 
     fs.mkdir(p, mode, function (er) {
