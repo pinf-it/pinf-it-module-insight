@@ -1,0 +1,27 @@
+{
+    "filename": "require_resolve.js",
+    "filepath": "various/require_resolve.js",
+    "mtime": 0,
+    "code": "\nrequire.resolve(\"os\");\n",
+    "globals": {},
+    "syntax": "javascript",
+    "format": "encapsulated",
+    "undefine": [],
+    "uses": {},
+    "dependencies": {
+        "static": {
+            "os": {
+                "where": "resolve"
+            }
+        },
+        "dynamic": {},
+        "computed": false
+    },
+    "warnings": [
+        [
+            "parse-generic",
+            "No global variables found. Thus cannot interface with code."
+        ]
+    ],
+    "errors": []
+}
