@@ -2,10 +2,14 @@
     "filename": "require_resolve.js",
     "filepath": "various/require_resolve.js",
     "mtime": 0,
-    "code": "\nrequire.resolve(\"os\");\n",
-    "globals": {},
+    "code": "\nrequire.resolve(\"os\");\n\nconsole.log(\"Hello World\");\n",
+    "globals": {
+        "console": {
+            "type": "reference"
+        }
+    },
     "syntax": "javascript",
-    "format": "encapsulated",
+    "format": "leaky",
     "undefine": [],
     "uses": {},
     "dependencies": {
@@ -17,11 +21,6 @@
         "dynamic": {},
         "computed": false
     },
-    "warnings": [
-        [
-            "parse-generic",
-            "No global variables found. Thus cannot interface with code."
-        ]
-    ],
+    "warnings": [],
     "errors": []
 }
