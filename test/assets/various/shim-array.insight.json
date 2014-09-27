@@ -39,9 +39,9 @@
         }
     },
     "syntax": "javascript",
-    "format": "amd-ish",
+    "format": "commonjs",
     "undefine": [
-        "module"
+        "define"
     ],
     "uses": {},
     "dependencies": {
