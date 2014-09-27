@@ -1,0 +1,67 @@
+{
+    "filename": "shim-array.js",
+    "filepath": "various/shim-array.js",
+    "mtime": 0,
+    "code": "// @see https://github.com/kriskowal/collections/blob/d1420a5ed0cc1a9d1ba3bb0d8122414141828424/shim-array.js\n\n\"use strict\";\n\n/*\n    Based in part on extras from Motorola Mobility’s Montage\n    Copyright (c) 2012, Motorola Mobility LLC. All Rights Reserved.\n    3-Clause BSD License\n    https://github.com/motorola-mobility/montage/blob/master/LICENSE.md\n*/\n\nvar Function = require(\"./shim-function\");\nvar GenericCollection = require(\"./generic-collection\");\nvar GenericOrder = require(\"./generic-order\");\nvar WeakMap = require(\"weak-map\");\n\nmodule.exports = Array;\n\nArray.empty = [];\n\nif (Object.freeze) {\n    Object.freeze(Array.empty);\n}\n\nArray.from = function (values) {\n    var array = [];\n    array.addEach(values);\n    return array;\n};\n\nArray.unzip = function (table) {\n    var transpose = [];\n    var length = Infinity;\n    // compute shortest row\n    for (var i = 0; i < table.length; i++) {\n        var row = table[i];\n        table[i] = row.toArray();\n        if (row.length < length) {\n            length = row.length;\n        }\n    }\n    for (var i = 0; i < table.length; i++) {\n        var row = table[i];\n        for (var j = 0; j < row.length; j++) {\n            if (j < length && j in row) {\n                transpose[j] = transpose[j] || [];\n                transpose[j][i] = row[j];\n            }\n        }\n    }\n    return transpose;\n};\n\nfunction define(key, value) {\n    Object.defineProperty(Array.prototype, key, {\n        value: value,\n        writable: true,\n        configurable: true,\n        enumerable: false\n    });\n}\n\ndefine(\"addEach\", GenericCollection.prototype.addEach);\ndefine(\"deleteEach\", GenericCollection.prototype.deleteEach);\ndefine(\"toArray\", GenericCollection.prototype.toArray);\ndefine(\"toObject\", GenericCollection.prototype.toObject);\ndefine(\"all\", GenericCollection.prototype.all);\ndefine(\"any\", GenericCollection.prototype.any);\ndefine(\"min\", GenericCollection.prototype.min);\ndefine(\"max\", GenericCollection.prototype.max);\ndefine(\"sum\", GenericCollection.prototype.sum);\ndefine(\"average\", GenericCollection.prototype.average);\ndefine(\"only\", GenericCollection.prototype.only);\ndefine(\"flatten\", GenericCollection.prototype.flatten);\ndefine(\"zip\", GenericCollection.prototype.zip);\ndefine(\"enumerate\", GenericCollection.prototype.enumerate);\ndefine(\"group\", GenericCollection.prototype.group);\ndefine(\"sorted\", GenericCollection.prototype.sorted);\ndefine(\"reversed\", GenericCollection.prototype.reversed);\n\ndefine(\"constructClone\", function (values) {\n    var clone = new this.constructor();\n    clone.addEach(values);\n    return clone;\n});\n\ndefine(\"has\", function (value, equals) {\n    return this.find(value, equals) !== -1;\n});\n\ndefine(\"get\", function (index, defaultValue) {\n    if (+index !== index)\n        throw new Error(\"Indicies must be numbers\");\n    if (!index in this) {\n        return defaultValue;\n    } else {\n        return this[index];\n    }\n});\n\ndefine(\"set\", function (index, value) {\n    this.splice(index, 1, value);\n    return true;\n});\n\ndefine(\"add\", function (value) {\n    this.push(value);\n    return true;\n});\n\ndefine(\"delete\", function (value, equals) {\n    var index = this.find(value, equals);\n    if (index !== -1) {\n        this.splice(index, 1);\n        return true;\n    }\n    return false;\n});\n\ndefine(\"find\", function (value, equals) {\n    equals = equals || this.contentEquals || Object.equals;\n    for (var index = 0; index < this.length; index++) {\n        if (index in this && equals(this[index], value)) {\n            return index;\n        }\n    }\n    return -1;\n});\n\ndefine(\"findLast\", function (value, equals) {\n    equals = equals || this.contentEquals || Object.equals;\n    var index = this.length;\n    do {\n        index--;\n        if (index in this && equals(this[index], value)) {\n            return index;\n        }\n    } while (index > 0);\n    return -1;\n});\n\ndefine(\"swap\", function (index, length, plus) {\n    var args = Array.prototype.slice.call(arguments, 0, 2);\n    if (plus) {\n        if (!Array.isArray(plus)) {\n            plus = Array.prototype.slice.call(plus);\n        }\n        args.push.apply(args, plus);\n    }\n    return this.splice.apply(this, args);\n});\n\ndefine(\"one\", function () {\n    for (var i in this) {\n        if (Object.owns(this, i)) {\n            return this[i];\n        }\n    }\n});\n\ndefine(\"clear\", function () {\n    this.length = 0;\n    return this;\n});\n\ndefine(\"compare\", function (that, compare) {\n    compare = compare || Object.compare;\n    var i;\n    var length;\n    var lhs;\n    var rhs;\n    var relative;\n\n    if (this === that) {\n        return 0;\n    }\n\n    if (!that || !Array.isArray(that)) {\n        return GenericOrder.prototype.compare.call(this, that, compare);\n    }\n\n    length = Math.min(this.length, that.length);\n\n    for (i = 0; i < length; i++) {\n        if (i in this) {\n            if (!(i in that)) {\n                return -1;\n            } else {\n                lhs = this[i];\n                rhs = that[i];\n                relative = compare(lhs, rhs);\n                if (relative) {\n                    return relative;\n                }\n            }\n        } else if (i in that) {\n            return 1;\n        }\n    }\n\n    return this.length - that.length;\n});\n\ndefine(\"equals\", function (that, equals) {\n    equals = equals || Object.equals;\n    var i = 0;\n    var length = this.length;\n    var left;\n    var right;\n\n    if (this === that) {\n        return true;\n    }\n    if (!that || !Array.isArray(that)) {\n        return GenericOrder.prototype.equals.call(this, that);\n    }\n\n    if (length !== that.length) {\n        return false;\n    } else {\n        for (; i < length; ++i) {\n            if (i in this) {\n                if (!(i in that)) {\n                    return false;\n                }\n                left = this[i];\n                right = that[i];\n                if (!equals(left, right)) {\n                    return false;\n                }\n            } else {\n                if (i in that) {\n                    return false;\n                }\n            }\n        }\n    }\n    return true;\n});\n\ndefine(\"clone\", function (depth, memo) {\n    if (depth === undefined) {\n        depth = Infinity;\n    } else if (depth === 0) {\n        return this;\n    }\n    memo = memo || new WeakMap();\n    var clone = [];\n    for (var i in this) {\n        if (Object.owns(this, i)) {\n            clone[i] = Object.clone(this[i], depth - 1, memo);\n        }\n    };\n    return clone;\n});\n\ndefine(\"iterate\", function (start, end) {\n    return new ArrayIterator(this, start, end);\n});\n\ndefine(\"Iterator\", ArrayIterator);\n\nfunction ArrayIterator(array, start, end) {\n    this.array = array;\n    this.start = start == null ? 0 : start;\n    this.end = end;\n};\n\nArrayIterator.prototype.next = function () {\n    if (this.start === (this.end == null ? this.array.length : this.end)) {\n        throw StopIteration;\n    } else {\n        return this.array[this.start++];\n    }\n};\n\n",
+    "globals": {
+        "Function": {
+            "type": "assign"
+        },
+        "require": {
+            "type": "call"
+        },
+        "GenericCollection": {
+            "type": "assign"
+        },
+        "GenericOrder": {
+            "type": "assign"
+        },
+        "WeakMap": {
+            "type": "assign"
+        },
+        "module": {
+            "type": "reference"
+        },
+        "Array": {
+            "type": "reference"
+        },
+        "Object": {
+            "type": "reference"
+        },
+        "define": {
+            "type": "assign"
+        },
+        "Math": {
+            "type": "reference"
+        },
+        "ArrayIterator": {
+            "type": "reference"
+        }
+    },
+    "syntax": "javascript",
+    "format": "amd-ish",
+    "undefine": [
+        "module"
+    ],
+    "uses": {},
+    "dependencies": {
+        "static": {
+            "./shim-function": {
+                "where": "inline"
+            },
+            "./generic-collection": {
+                "where": "inline"
+            },
+            "./generic-order": {
+                "where": "inline"
+            },
+            "weak-map": {
+                "where": "inline"
+            }
+        },
+        "dynamic": {},
+        "computed": false
+    },
+    "warnings": [],
+    "errors": []
+}
