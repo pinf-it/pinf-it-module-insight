@@ -7,10 +7,11 @@ require.def("harPreview", [
     "core/lib",
     "core/trace",
     "preview/menu",
-    "preview/validationError"
+    "preview/validationError",
+    "i18n!nls/harPreview"
 ],
 
-function(RequestList, PageList, HarModel, Lib, Trace, Menu, ValidationError) {
+function(RequestList, PageList, HarModel, Lib, Trace, Menu, ValidationError, Strings) {
 
 //*************************************************************************************************
 // The Preview Application
