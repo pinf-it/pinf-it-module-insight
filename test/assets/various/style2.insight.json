@@ -1,0 +1,18 @@
+{
+    "filename": "style2.scss",
+    "filepath": "various/style2.scss",
+    "mtime": 0,
+    "code": "\nBODY {\n\tmargin: 0px;\n\tpadding: 0px;\n}\n",
+    "globals": {},
+    "syntax": null,
+    "format": "scss",
+    "undefine": [],
+    "uses": {},
+    "dependencies": {
+        "static": {},
+        "dynamic": {},
+        "computed": false
+    },
+    "warnings": [],
+    "errors": []
+}

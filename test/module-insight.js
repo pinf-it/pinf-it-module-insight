@@ -64,6 +64,62 @@ describe('module-insight', function() {
 
 		});
 
+		it('should parse various Style files', function(done) {
+
+			return getFiles([
+				"various/*.css",
+				"various/*.scss",
+			], function(err, files) {
+				if (err) return done(err);
+
+				var waitfor = WAITFOR.serial(done);
+				files.forEach(function(file) {
+					waitfor(function(done) {
+						var options = {
+							//debug: true,
+							rootPath: PATH.join(__dirname, "assets")
+						};
+						return MODULE_INSIGHT.parseFile(file, options, function(err, descriptor) {
+
+							if (err) return done(err);
+
+							try {
+
+								ASSERT(typeof descriptor === "object");
+
+								if (descriptor.errors.length > 0) {
+									descriptor.errors.forEach(function(error) {
+										var err = new Error("Got '" + error[0] + "' error '" + error[1] + "' for file '" + PATH.join("assets", file) + "'");
+										err.stack = error[2];
+										throw err;
+									});
+								}
+
+								descriptor.mtime = 0;
+
+								if (MODE === "test") {
+									ASSERT.deepEqual(
+										descriptor,
+										JSON.parse(FS.readFileSync(PATH.join(options.rootPath, file.replace(/\.[^\.]*$/, ".insight.json"))))
+									);
+								} else
+								if (MODE === "write") {
+									FS.writeFileSync(PATH.join(options.rootPath, file.replace(/\.[^\.]*$/, ".insight.json")), JSON.stringify(descriptor, null, 4));
+								} else {
+									throw new Error("Unknown `MODE`");
+								}
+
+								return done(null);
+							} catch(err) {
+								return done(err);
+							}
+						});
+					});
+				});
+			});
+
+		});
+
 		it('should parse various JavaScript files', function(done) {
 
 			return getFiles([
