@@ -90,7 +90,7 @@ HarPreview.prototype =
 
 //*************************************************************************************************
 // Initialization
-
+/*
 var content = document.getElementById("content");
 var harPreview = content.repObject = new HarPreview();
 
@@ -100,6 +100,13 @@ harPreview.initialize(content);
 Lib.fireEvent(content, "onPreviewInit");
 
 Trace.log("HarPreview; initialized OK");
-
+*/
 //*************************************************************************************************
+
+    return {
+        STRING: "string-value",
+        OBJECT: {
+            id: "object-value"
+        }
+    };
 });
