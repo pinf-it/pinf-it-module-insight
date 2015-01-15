@@ -25652,6 +25652,9 @@ define('build', function (require) {
         requirejs.define = define;
     }
 
+// NOTE: We stop the module from booting as we don't care to run it!
+//       We only need to scan the source and load it.
+/*
     //If in Node, and included via a require('requirejs'), just export and
     //THROW IT ON THE GROUND!
     if (env === 'node' && reqMain !== module) {
@@ -25685,15 +25688,15 @@ define('build', function (require) {
  * @license Copyright (c) 2010-2011, The Dojo Foundation All Rights Reserved.
  * Available via the MIT or new BSD license.
  * see: http://github.com/jrburke/requirejs for details
- */
+ 
 
 /*
  * Create a build.js file that has the build options you want and pass that
  * build file to this file to do the build. See example.build.js for more information.
- */
+ 
 
-/*jslint strict: false, nomen: false */
-/*global require: false */
+/*jslint strict: false, nomen: false
+/*global require: false
 
 require({
     baseUrl: require.s.contexts._.config.baseUrl,
@@ -25749,6 +25752,7 @@ function (args, quit, logger, build) {
             showHelp();
         }
     }
+*/
 
 }((typeof console !== 'undefined' ? console : undefined),
     (typeof Packages !== 'undefined' || (typeof window === 'undefined' &&
