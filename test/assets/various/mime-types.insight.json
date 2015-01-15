@@ -1,0 +1,43 @@
+{
+    "filename": "mime-types.js",
+    "filepath": "various/mime-types.js",
+    "mtime": 0,
+    "code": "\n// types[extension] = type\nexports.types = Object.create(null)\n// extensions[type] = [extensions]\nexports.extensions = Object.create(null)\n// define more mime types\nexports.define = define\n\n// store the json files\nexports.json = {\n  mime: require('./mime.json'),\n  node: require('./node.json'),\n  custom: require('./custom.json'),\n}\n\nexports.lookup = function (string) {\n  if (!string || typeof string !== \"string\") return false\n  string = string.replace(/.*[\\.\\/\\\\]/, '').toLowerCase()\n  if (!string) return false\n  return exports.types[string] || false\n}\n\nexports.extension = function (type) {\n  if (!type || typeof type !== \"string\") return false\n  type = type.match(/^\\s*([^;\\s]*)(?:;|\\s|$)/)\n  if (!type) return false\n  var exts = exports.extensions[type[1].toLowerCase()]\n  if (!exts || !exts.length) return false\n  return exts[0]\n}\n\n// type has to be an exact mime type\nexports.charset = function (type) {\n  // special cases\n  switch (type) {\n    case 'application/json': return 'UTF-8'\n    case 'application/javascript': return 'UTF-8'\n  }\n\n  // default text/* to utf-8\n  if (/^text\\//.test(type)) return 'UTF-8'\n\n  return false\n}\n\n// backwards compatibility\nexports.charsets = {\n  lookup: exports.charset\n}\n\nexports.contentType = function (type) {\n  if (!type || typeof type !== \"string\") return false\n  if (!~type.indexOf('/')) type = exports.lookup(type)\n  if (!type) return false\n  if (!~type.indexOf('charset')) {\n    var charset = exports.charset(type)\n    if (charset) type += '; charset=' + charset.toLowerCase()\n  }\n  return type\n}\n\ndefine(exports.json.mime)\ndefine(exports.json.node)\ndefine(exports.json.custom)\n\nfunction define(json) {\n  Object.keys(json).forEach(function (type) {\n    var exts = json[type] || []\n    exports.extensions[type] = exports.extensions[type] || []\n    exts.forEach(function (ext) {\n      if (!~exports.extensions[type].indexOf(ext)) exports.extensions[type].push(ext)\n      exports.types[ext] = type\n    })\n  })\n}\n",
+    "globals": {
+        "exports": {
+            "type": "reference"
+        },
+        "Object": {
+            "type": "reference"
+        },
+        "require": {
+            "type": "call"
+        },
+        "define": {
+            "type": "call"
+        }
+    },
+    "syntax": "javascript",
+    "format": "commonjs",
+    "undefine": [
+        "define"
+    ],
+    "uses": {},
+    "dependencies": {
+        "static": {
+            "./mime.json": {
+                "where": "inline"
+            },
+            "./node.json": {
+                "where": "inline"
+            },
+            "./custom.json": {
+                "where": "inline"
+            }
+        },
+        "dynamic": {},
+        "computed": false
+    },
+    "warnings": [],
+    "errors": []
+}
