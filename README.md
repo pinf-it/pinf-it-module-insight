@@ -38,7 +38,7 @@ Usage
 Development
 -----------
 
-    make test
+    npm test
 
 
 Links
