@@ -1,0 +1,32 @@
+{
+    "filename": "include-dir-by-dir.js",
+    "filepath": "various/include-dir-by-dir.js",
+    "mtime": 0,
+    "code": "\nmodule.exports = require('./lib/');\n\nmodule.exports = require('./lib1');\n",
+    "globals": {
+        "module": {
+            "type": "reference"
+        },
+        "require": {
+            "type": "call"
+        }
+    },
+    "syntax": "javascript",
+    "format": "leaky",
+    "undefine": [],
+    "uses": {},
+    "dependencies": {
+        "static": {
+            "./lib/": {
+                "where": "inline"
+            },
+            "./lib1": {
+                "where": "inline"
+            }
+        },
+        "dynamic": {},
+        "computed": false
+    },
+    "warnings": [],
+    "errors": []
+}
