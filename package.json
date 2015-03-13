@@ -5,6 +5,7 @@
   "publish": true,
   "main": "./lib/module-insight.js",
   "dependencies": {
+    "babel": "^4.7.4",
     "esprima": "^1.2.5",
     "fs-extra": "~0.6.0",
     "jslint": "~0.1.9"
