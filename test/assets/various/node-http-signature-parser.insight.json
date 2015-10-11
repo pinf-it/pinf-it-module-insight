@@ -43,6 +43,9 @@
         "module": {
             "type": "reference"
         },
+        "Object": {
+            "type": "reference"
+        },
         "Number": {
             "type": "call"
         },

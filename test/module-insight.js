@@ -11,6 +11,8 @@ const MODE = "test";
 
 
 describe('module-insight', function() {
+	
+	this.timeout(30 * 1000);
 
 	it('should export `parseFile()`', function() {
 		ASSERT(typeof MODULE_INSIGHT.parseFile === "function");
